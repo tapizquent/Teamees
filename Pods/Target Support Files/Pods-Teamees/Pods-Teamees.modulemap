@@ -1,0 +1,6 @@
+framework module Pods_Teamees {
+  umbrella header "Pods-Teamees-umbrella.h"
+
+  export *
+  module * { export * }
+}

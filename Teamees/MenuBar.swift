@@ -10,7 +10,7 @@ import UIKit
 
 class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let menuCellImages = ["top", "recommended", "local", "today"]
+    let menuCellImages = ["top", "local", "liked_icon", "recommended"]
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

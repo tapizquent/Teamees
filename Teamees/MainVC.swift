@@ -9,7 +9,13 @@
 import UIKit
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
+    
+    //Menu bar constant
+    let menuBar: MenuBar = {
+        let mb = MenuBar()
+        return mb
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +26,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         let titleNavLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height))
         titleNavLabel.text = "Events"
         titleNavLabel.textColor = .white
-        titleNavLabel.font = titleNavLabel.font.withSize(20)
+        titleNavLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
         navigationItem.titleView = titleNavLabel
         
         
@@ -32,19 +38,33 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         
         
         setUpMenuBar()
+        setUpNavigationBarIcons()
         
     }
     
-    let menuBar: MenuBar = {
-        let mb = MenuBar()
-        return mb
-    }()
-    
+    // Function setting up the menu bar
     private func setUpMenuBar(){
         view.addSubview(menuBar)
         view.addContraintsWithFormat(format: "H:|[v0]|", views: menuBar)
         view.addContraintsWithFormat(format: "V:[v0(50)]|", views: menuBar)
         
+    }
+    
+    func setUpNavigationBarIcons() {
+        let searchImage = UIImage(named: "search_icon")?.withRenderingMode(.alwaysOriginal)
+        let accountImage = UIImage(named: "account_icon")?.withRenderingMode(.alwaysOriginal)
+        let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
+        let accountBarButtonItem = UIBarButtonItem(image: accountImage, style: .plain, target: self, action: #selector(handleProfile))
+        
+        navigationItem.rightBarButtonItems = [accountBarButtonItem, searchBarButtonItem]
+    }
+    
+    func handleSearch(){
+        print("Search button pressed")
+    }
+    
+    func handleProfile(){
+        print("Profile icon pressed")
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

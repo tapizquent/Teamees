@@ -17,15 +17,19 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         navigationItem.title = "Events"
         navigationController?.navigationBar.isTranslucent = false
         
-        let titleNavLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
+        let titleNavLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height))
         titleNavLabel.text = "Events"
         titleNavLabel.textColor = .white
-        titleNavLabel.font = titleNavLabel.font.withSize(22)
+        titleNavLabel.font = titleNavLabel.font.withSize(20)
         navigationItem.titleView = titleNavLabel
         
         
         collectionView?.backgroundColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)
         collectionView?.register(EventCell.self, forCellWithReuseIdentifier: "cellId")
+        
+        collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0)
+        
         
         setUpMenuBar()
         

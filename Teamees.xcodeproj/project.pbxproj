@@ -18,6 +18,8 @@
 		D0DD23B51F65B31C00B944B4 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23B41F65B31C00B944B4 /* EventCell.swift */; };
 		D0DD23B81F65CBF100B944B4 /* ConstraintViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23B71F65CBF100B944B4 /* ConstraintViews.swift */; };
 		D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23B91F67100E00B944B4 /* MenuBar.swift */; };
+		D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23BB1F671B5E00B944B4 /* BaseCell.swift */; };
+		D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D0DD23B41F65B31C00B944B4 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		D0DD23B71F65CBF100B944B4 /* ConstraintViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViews.swift; sourceTree = "<group>"; };
 		D0DD23B91F67100E00B944B4 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		D0DD23BB1F671B5E00B944B4 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		EDB4C62ECCA34864D26F43B6 /* Pods_TeameesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeameesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,8 @@
 			children = (
 				D0DD23B41F65B31C00B944B4 /* EventCell.swift */,
 				D0DD23B91F67100E00B944B4 /* MenuBar.swift */,
+				D0DD23BB1F671B5E00B944B4 /* BaseCell.swift */,
+				D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -379,10 +385,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */,
 				D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */,
 				D0DD23B51F65B31C00B944B4 /* EventCell.swift in Sources */,
 				D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */,
 				D0DD23B81F65CBF100B944B4 /* ConstraintViews.swift in Sources */,
+				D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */,
 				D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

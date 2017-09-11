@@ -8,12 +8,9 @@
 
 import UIKit
 
-class EventCell: UICollectionViewCell {
+class EventCell: BaseCell {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpView()
-    }
+    
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -39,7 +36,7 @@ class EventCell: UICollectionViewCell {
         label.text = "Camping in South Carolina"
         label.textColor = .white
         label.textAlignment = .center
-        label.font = label.font.withSize(18)
+        label.font = label.font.withSize(20)
         return label
     }()
     
@@ -61,7 +58,7 @@ class EventCell: UICollectionViewCell {
         return view
     }()
     
-    func setUpView() {
+    override func setUpView() {
         
         addSubview(backgroundImageView)
         addSubview(thumbnailImageView)
@@ -96,7 +93,5 @@ class EventCell: UICollectionViewCell {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
 }

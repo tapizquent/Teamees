@@ -10,6 +10,20 @@ import UIKit
 
 class EventCell: BaseCell {
     
+    var event: Event? {
+        didSet {
+            titleLabel.text = event?.title
+            
+            if let thumnailImage = event?.thumbnailImageName {
+                thumbnailImageView.image = UIImage(named: thumnailImage)
+                backgroundImageView.image = UIImage(named: thumnailImage)
+            }
+            
+            descriptionLabel.text = event?.description
+            likesLabel.text = "\(event?.likes ?? 0)"
+        }
+        
+    }
     
     
     let backgroundImageView: UIImageView = {
@@ -57,8 +71,16 @@ class EventCell: BaseCell {
         let toLike = UIImage(named: "like_icon")
         lb.setImage(toLike?.withRenderingMode(.alwaysTemplate), for: .normal)
         lb.tintColor = .white
-        
         return lb
+    }()
+    
+    let likesLabel: UILabel = {
+        let ll = UILabel()
+        ll.text = "125"
+        ll.textColor = .white
+        ll.font = ll.font.withSize(10)
+        ll.textAlignment = .center
+        return ll
     }()
     
     let separatorView: UIView = {
@@ -75,6 +97,7 @@ class EventCell: BaseCell {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(likeButtonImage)
+        addSubview(likesLabel)
         
         likeButtonImage.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         
@@ -106,11 +129,16 @@ class EventCell: BaseCell {
         
         //Like button constraints
         addConstraint(NSLayoutConstraint(item: likeButtonImage, attribute: .right, relatedBy: .equal, toItem: titleLabel, attribute: .right, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: likeButtonImage, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 16))
+        addConstraint(NSLayoutConstraint(item: likeButtonImage, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 8))
         
         addContraintsWithFormat(format: "V:[v0(30)]", views: likeButtonImage)
         addContraintsWithFormat(format: "H:[v0(30)]", views: likeButtonImage)
         
+        addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .top, relatedBy: .equal, toItem: likeButtonImage, attribute: .bottom, multiplier: 1, constant: 0))
+        
+        addContraintsWithFormat(format: "V:[v0(15)]", views: likesLabel)
+        addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .left, relatedBy: .equal, toItem: likeButtonImage, attribute: .left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .right, relatedBy: .equal, toItem: likeButtonImage, attribute: .right, multiplier: 1, constant: 0))
     }
     
     
@@ -118,18 +146,28 @@ class EventCell: BaseCell {
         
         let toLike = UIImage(named: "like_icon")
         let liked = UIImage(named: "liked_icon")
+        var likes = Int(likesLabel.text!)
         
         if button.isSelected == true {
             button.isSelected = false
             button.setImage(toLike, for: .normal)
+            if likes != 0 {
+                event?.likes -= 1
+                likes? -= 1
+                likesLabel.text = "\(likes ?? 0)"
+            }
             print("Event Unliked")
         } else {
             button.isSelected = true
             button.setImage(liked, for: .normal)
+            event?.likes += 1
+            likes? += 1
+            likesLabel.text = "\(likes ?? 0)"
+            
             print("Event liked")
+            
         }
         
     }
-    
     
 }

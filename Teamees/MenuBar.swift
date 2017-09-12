@@ -12,6 +12,8 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     let menuCellImages = ["top", "local", "liked_icon", "recommended"]
     
+    var mainVC: MainVC?
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -34,8 +36,32 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         let selectedItem = NSIndexPath(item: 0, section: 0)
         collectionView.selectItem(at: selectedItem as IndexPath, animated: true, scrollPosition: .init(rawValue: 0))
-
         
+        setUpHorizontalBar()
+        
+    }
+    
+    var horizontalBarViewLeftAnchorContraint: NSLayoutConstraint?
+    
+    func setUpHorizontalBar() {
+        let horizontalBarView = UIView()
+        horizontalBarView.backgroundColor = .white
+        horizontalBarView.alpha = 0.9
+        horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(horizontalBarView)
+        
+        //Contraints
+        horizontalBarViewLeftAnchorContraint = horizontalBarView.leftAnchor.constraint(equalTo: self.leftAnchor)
+        horizontalBarViewLeftAnchorContraint?.isActive = true
+        horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4).isActive = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+        
+        mainVC?.scrollToMenuIndex(menuIndex: indexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

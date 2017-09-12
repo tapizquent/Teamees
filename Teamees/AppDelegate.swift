@@ -12,15 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    public var loggedIn = false
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
         let layout = UICollectionViewFlowLayout()
         
+
         window?.rootViewController = UINavigationController(rootViewController: MainVC(collectionViewLayout: layout))
         
         UINavigationBar.appearance().barTintColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)

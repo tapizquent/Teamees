@@ -6,6 +6,9 @@ target 'Teamees' do
   use_frameworks!
 
   # Pods for Teamees
+  pod 'Firebase'
+  pod 'FirebaseAuth'
+  pod 'FirebaseStorage'
 
   target 'TeameesTests' do
     inherit! :search_paths

@@ -32,14 +32,15 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     func setUpNavigationBar(){
-        navigationItem.title = "Events"
+        navigationItem.title = "Top"
         navigationController?.navigationBar.isTranslucent = false
         
-        let titleNavLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height))
-        titleNavLabel.text = "Events"
+        let titleNavLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        titleNavLabel.text = "Top"
         titleNavLabel.textColor = .white
-        titleNavLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
+        titleNavLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         navigationItem.titleView = titleNavLabel
+        
     }
     
     func setUpEventsCollectionView(){
@@ -91,13 +92,25 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     func scrollToMenuIndex(menuIndex: Int) {
         let indexPath = IndexPath(item: menuIndex, section: 0)
         collectionView?.scrollToItem(at: indexPath, at: .init(rawValue: 0), animated: true)
+        setNavBarTitles(index: Int(menuIndex))
     }
+    
+    func setNavBarTitles(index: Int){
+        let titles = ["Top", "Local", "Liked", "Recommended"]
+        if let titleLabel = navigationItem.titleView as? UILabel{
+            titleLabel.text = titles[index]
+            
+        }
+    }
+    
     
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         let index = targetContentOffset.pointee.x / view.frame.width
         let indexPath = IndexPath(item: Int(index), section: 0)
         menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .init(rawValue: 0))
+        
+        setNavBarTitles(index: Int(index))
     }
     
     func handleSearch(){

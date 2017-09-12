@@ -22,6 +22,7 @@
 		D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */; };
 		D0DD23C01F6752B900B944B4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23BF1F6752B900B944B4 /* Event.swift */; };
 		D0DD23C21F67580900B944B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23C11F67580900B944B4 /* User.swift */; };
+		D0DD23C61F6839CF00B944B4 /* HorizontalSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23C51F6839CF00B944B4 /* HorizontalSectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D0DD23BF1F6752B900B944B4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D0DD23C11F67580900B944B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D0DD23C51F6839CF00B944B4 /* HorizontalSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalSectionCell.swift; sourceTree = "<group>"; };
 		EDB4C62ECCA34864D26F43B6 /* Pods_TeameesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeameesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 				D0DD23B91F67100E00B944B4 /* MenuBar.swift */,
 				D0DD23BB1F671B5E00B944B4 /* BaseCell.swift */,
 				D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */,
+				D0DD23C51F6839CF00B944B4 /* HorizontalSectionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				D0DD23B81F65CBF100B944B4 /* ConstraintViews.swift in Sources */,
 				D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */,
 				D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */,
+				D0DD23C61F6839CF00B944B4 /* HorizontalSectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

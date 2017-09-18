@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		0BE23EC855FB3DEAE3C24680 /* Pods_TeameesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDB4C62ECCA34864D26F43B6 /* Pods_TeameesTests.framework */; };
 		7B8614A4313ACE25C5FCB005 /* Pods_Teamees.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40786B6BC15E25832FBA8E9 /* Pods_Teamees.framework */; };
+		D082EFF01F6B3A9A00B699FC /* LocalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFEF1F6B3A9A00B699FC /* LocalCell.swift */; };
+		D082EFF21F6B448D00B699FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D082EFF11F6B448D00B699FC /* GoogleService-Info.plist */; };
+		D082EFF51F6B545300B699FC /* LikedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF41F6B545300B699FC /* LikedCell.swift */; };
+		D082EFF71F6B566300B699FC /* RecommendedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF61F6B566300B699FC /* RecommendedCell.swift */; };
+		D082EFF91F6B5AEB00B699FC /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF81F6B5AEB00B699FC /* Authorizer.swift */; };
+		D082EFFE1F6B62B800B699FC /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFFD1F6B62B800B699FC /* SignInVC.swift */; };
+		D082F0001F6B62CC00B699FC /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFFF1F6B62CC00B699FC /* CreateAccountVC.swift */; };
+		D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0011F6B768F00B699FC /* SlideAnimator.swift */; };
+		D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0031F6C655F00B699FC /* ProfileVC.swift */; };
+		D082F0061F6CD8E200B699FC /* FIrebaseAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */; };
 		D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23911F65A96300B944B4 /* AppDelegate.swift */; };
 		D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23931F65A96300B944B4 /* MainVC.swift */; };
 		D0DD23971F65A96300B944B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DD23951F65A96300B944B4 /* Main.storyboard */; };
@@ -22,7 +32,7 @@
 		D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */; };
 		D0DD23C01F6752B900B944B4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23BF1F6752B900B944B4 /* Event.swift */; };
 		D0DD23C21F67580900B944B4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23C11F67580900B944B4 /* User.swift */; };
-		D0DD23C61F6839CF00B944B4 /* HorizontalSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23C51F6839CF00B944B4 /* HorizontalSectionCell.swift */; };
+		D0DD23C61F6839CF00B944B4 /* TopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23C51F6839CF00B944B4 /* TopCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +51,18 @@
 		7CA8C6C9934723CA4CE90DA8 /* Pods-TeameesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeameesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeameesTests/Pods-TeameesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CABCEBFDF869A00E2EF712A /* Pods-Teamees.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teamees.release.xcconfig"; path = "Pods/Target Support Files/Pods-Teamees/Pods-Teamees.release.xcconfig"; sourceTree = "<group>"; };
 		C40786B6BC15E25832FBA8E9 /* Pods_Teamees.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teamees.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D082EFEF1F6B3A9A00B699FC /* LocalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCell.swift; sourceTree = "<group>"; };
+		D082EFF11F6B448D00B699FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D082EFF31F6B455100B699FC /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		D082EFF41F6B545300B699FC /* LikedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCell.swift; sourceTree = "<group>"; };
+		D082EFF61F6B566300B699FC /* RecommendedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCell.swift; sourceTree = "<group>"; };
+		D082EFF81F6B5AEB00B699FC /* Authorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorizer.swift; sourceTree = "<group>"; };
+		D082EFFC1F6B615600B699FC /* Teamees.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Teamees.entitlements; sourceTree = "<group>"; };
+		D082EFFD1F6B62B800B699FC /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		D082EFFF1F6B62CC00B699FC /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		D082F0011F6B768F00B699FC /* SlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimator.swift; sourceTree = "<group>"; };
+		D082F0031F6C655F00B699FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseAuthorizer.swift; sourceTree = "<group>"; };
 		D0DD238E1F65A96300B944B4 /* Teamees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teamees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DD23911F65A96300B944B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DD23931F65A96300B944B4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -58,7 +80,7 @@
 		D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		D0DD23BF1F6752B900B944B4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D0DD23C11F67580900B944B4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D0DD23C51F6839CF00B944B4 /* HorizontalSectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalSectionCell.swift; sourceTree = "<group>"; };
+		D0DD23C51F6839CF00B944B4 /* TopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCell.swift; sourceTree = "<group>"; };
 		EDB4C62ECCA34864D26F43B6 /* Pods_TeameesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeameesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,6 +147,7 @@
 		D0DD23901F65A96300B944B4 /* Teamees */ = {
 			isa = PBXGroup;
 			children = (
+				D082EFFC1F6B615600B699FC /* Teamees.entitlements */,
 				D0DD23B61F65CBD700B944B4 /* Extensions */,
 				D0DD23B31F65A97D00B944B4 /* Model */,
 				D0DD23B21F65A97400B944B4 /* View */,
@@ -134,6 +157,8 @@
 				D0DD23981F65A96300B944B4 /* Assets.xcassets */,
 				D0DD239A1F65A96300B944B4 /* LaunchScreen.storyboard */,
 				D0DD239D1F65A96300B944B4 /* Info.plist */,
+				D082EFF11F6B448D00B699FC /* GoogleService-Info.plist */,
+				D082EFF31F6B455100B699FC /* Header.h */,
 			);
 			path = Teamees;
 			sourceTree = "<group>";
@@ -151,6 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				D0DD23931F65A96300B944B4 /* MainVC.swift */,
+				D082EFFD1F6B62B800B699FC /* SignInVC.swift */,
+				D082EFFF1F6B62CC00B699FC /* CreateAccountVC.swift */,
+				D082F0031F6C655F00B699FC /* ProfileVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -162,7 +190,12 @@
 				D0DD23B91F67100E00B944B4 /* MenuBar.swift */,
 				D0DD23BB1F671B5E00B944B4 /* BaseCell.swift */,
 				D0DD23BD1F671BBD00B944B4 /* MenuCell.swift */,
-				D0DD23C51F6839CF00B944B4 /* HorizontalSectionCell.swift */,
+				D0DD23C51F6839CF00B944B4 /* TopCell.swift */,
+				D082EFEF1F6B3A9A00B699FC /* LocalCell.swift */,
+				D082EFF41F6B545300B699FC /* LikedCell.swift */,
+				D082EFF61F6B566300B699FC /* RecommendedCell.swift */,
+				D082EFF81F6B5AEB00B699FC /* Authorizer.swift */,
+				D082F0011F6B768F00B699FC /* SlideAnimator.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -172,6 +205,7 @@
 			children = (
 				D0DD23BF1F6752B900B944B4 /* Event.swift */,
 				D0DD23C11F67580900B944B4 /* User.swift */,
+				D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -235,17 +269,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Jose Tapizquent";
 				TargetAttributes = {
 					D0DD238D1F65A96300B944B4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = A58859Q3MF;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					D0DD23A11F65A96300B944B4 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = A58859Q3MF;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = D0DD238D1F65A96300B944B4;
 					};
@@ -276,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0DD239C1F65A96300B944B4 /* LaunchScreen.storyboard in Resources */,
+				D082EFF21F6B448D00B699FC /* GoogleService-Info.plist in Resources */,
 				D0DD23991F65A96300B944B4 /* Assets.xcassets in Resources */,
 				D0DD23971F65A96300B944B4 /* Main.storyboard in Resources */,
 			);
@@ -361,14 +403,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Teamees/Pods-Teamees-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,14 +449,23 @@
 			files = (
 				D0DD23C01F6752B900B944B4 /* Event.swift in Sources */,
 				D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */,
+				D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */,
+				D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */,
 				D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */,
 				D0DD23B51F65B31C00B944B4 /* EventCell.swift in Sources */,
 				D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */,
 				D0DD23C21F67580900B944B4 /* User.swift in Sources */,
+				D082EFF71F6B566300B699FC /* RecommendedCell.swift in Sources */,
 				D0DD23B81F65CBF100B944B4 /* ConstraintViews.swift in Sources */,
+				D082EFF91F6B5AEB00B699FC /* Authorizer.swift in Sources */,
 				D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */,
+				D082EFFE1F6B62B800B699FC /* SignInVC.swift in Sources */,
 				D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */,
-				D0DD23C61F6839CF00B944B4 /* HorizontalSectionCell.swift in Sources */,
+				D0DD23C61F6839CF00B944B4 /* TopCell.swift in Sources */,
+				D082F0001F6B62CC00B699FC /* CreateAccountVC.swift in Sources */,
+				D082F0061F6CD8E200B699FC /* FIrebaseAuthorizer.swift in Sources */,
+				D082EFF51F6B545300B699FC /* LikedCell.swift in Sources */,
+				D082EFF01F6B3A9A00B699FC /* LocalCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +517,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -470,7 +527,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -513,7 +574,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -521,7 +584,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -552,12 +619,14 @@
 			baseConfigurationReference = 07C15832A83A44CD85BDC541 /* Pods-Teamees.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Teamees/Teamees.entitlements;
 				DEVELOPMENT_TEAM = A58859Q3MF;
 				INFOPLIST_FILE = Teamees/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapizquent.Teamees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -566,12 +635,14 @@
 			baseConfigurationReference = 8CABCEBFDF869A00E2EF712A /* Pods-Teamees.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Teamees/Teamees.entitlements;
 				DEVELOPMENT_TEAM = A58859Q3MF;
 				INFOPLIST_FILE = Teamees/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapizquent.Teamees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -586,7 +657,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapizquent.TeameesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Teamees.app/Teamees";
 			};
 			name = Debug;
@@ -602,7 +674,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapizquent.TeameesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Teamees.app/Teamees";
 			};
 			name = Release;

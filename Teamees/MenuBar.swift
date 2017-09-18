@@ -14,6 +14,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     var mainVC: MainVC?
     
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -32,10 +33,11 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         addSubview(collectionView)
         addContraintsWithFormat(format: "H:|[v0]|", views: collectionView)
-        addContraintsWithFormat(format: "V:|[v0]|", views: collectionView)
+        addContraintsWithFormat(format: "V:|[v0(50)]|", views: collectionView)
+        collectionView.isScrollEnabled = false
         
         let selectedItem = NSIndexPath(item: 0, section: 0)
-        collectionView.selectItem(at: selectedItem as IndexPath, animated: true, scrollPosition: .init(rawValue: 0))
+        collectionView.selectItem(at: selectedItem as IndexPath, animated: true, scrollPosition: .centeredHorizontally)
         
         setUpHorizontalBar()
         
@@ -53,7 +55,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         //Contraints
         horizontalBarViewLeftAnchorContraint = horizontalBarView.leftAnchor.constraint(equalTo: self.leftAnchor)
         horizontalBarViewLeftAnchorContraint?.isActive = true
-        horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        horizontalBarView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4).isActive = true
         horizontalBarView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }

@@ -1,4 +1,5 @@
 PODS:
+  - DZNEmptyDataSet (1.8.1)
   - Firebase (4.1.1):
     - Firebase/Core (= 4.1.1)
   - Firebase/Core (4.1.1):
@@ -33,6 +34,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - Hero (1.0.0-alpha.4)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -40,11 +42,14 @@ PODS:
   - nanopb/encode (0.3.8)
 
 DEPENDENCIES:
+  - DZNEmptyDataSet
   - Firebase
   - FirebaseAuth
   - FirebaseStorage
+  - Hero (~> 1.0.0-alpha.4)
 
 SPEC CHECKSUMS:
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
   FirebaseAuth: f8b07aa83de60d606b4eadd81484b3ac2097ea3e
@@ -53,8 +58,9 @@ SPEC CHECKSUMS:
   FirebaseStorage: 661fc1f8d4131891d256b62e82a45ace8b3f0c3b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  Hero: 6ab58fdfb16c75ce9c6bfad48ef6abb54780b263
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: da82acde2d49bd5b1f8df216525c74a367056ed0
+PODFILE CHECKSUM: 0acdc842e42ee0db7764aa952bb3e55901079232
 
 COCOAPODS: 1.3.1

@@ -142,7 +142,7 @@ class EventCell: BaseCell {
     }
     
     
-    func likeButtonTapped(_ button: UIButton){
+    @objc func likeButtonTapped(_ button: UIButton){
         
         let toLike = UIImage(named: "like_icon")
         let liked = UIImage(named: "liked_icon")

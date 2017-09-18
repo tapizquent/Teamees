@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import Hero
+import Firebase
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    //let FIRAuth = FirebaseAuthorizer()
     
+    //var hidingNavigationManager: HidingNavigationBarManager?
+    let topCellId = "topCellId"
+    let localCellId = "localCellId"
+    let likedCellId = "likedCellId"
+    let recommendedCellId = "recommendedCellId"
     
-    let cellId = "cellId"
+    //View Controllers
+    let signInVC = SignInVC()
+    let createAccountVC = CreateAccountVC()
+    let profileVC = ProfileVC()
+    
+    //Animation
+    let slideAnimator = SlideAnimator()
     
     //Menu bar constant
     lazy var menuBar: MenuBar = {
@@ -20,26 +34,56 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         mb.mainVC = self
         return mb
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //isHeroEnabled = true
         setUpNavigationBar()
         setUpEventsCollectionView()
         setUpMenuBar()
         setUpNavigationBarIcons()
+        isHeroEnabled = true
+        if Auth.auth().currentUser != nil {
+            print("JOSE: User is signed in")
+        } else {
+            print("JOSE: No User signed in yet")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        //hidingNavigationManager?.viewWillAppear(true)
+//        let height: CGFloat = 100 //whatever height you want
+//        let bounds = self.navigationController!.navigationBar.bounds
+//        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
         
     }
     
+    override func viewDidLayoutSubviews() {
+        //hidingNavigationManager?.viewDidLayoutSubviews()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+       // hidingNavigationManager?.viewWillDisappear(true)
+        
+    }
+    
+    
     func setUpNavigationBar(){
-        navigationItem.title = "Top"
         navigationController?.navigationBar.isTranslucent = false
+        
+        
+        //navigationController?.hidesBarsOnSwipe = true
         
         let titleNavLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         titleNavLabel.text = "Top"
         titleNavLabel.textColor = .white
-        titleNavLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        
+        titleNavLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 25)
         navigationItem.titleView = titleNavLabel
+        
+        
         
     }
     
@@ -51,15 +95,23 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         }
         
         collectionView?.backgroundColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)
-        //collectionView?.register(EventCell.self, forCellWithReuseIdentifier: "cellId")
-        collectionView?.register(HorizontalSectionCell.self, forCellWithReuseIdentifier: cellId)
         
-        collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 50, 0)
+        
+        collectionView?.register(TopCell.self, forCellWithReuseIdentifier: topCellId)
+        collectionView?.register(LocalCell.self, forCellWithReuseIdentifier: localCellId)
+        collectionView?.register(LikedCell.self, forCellWithReuseIdentifier: likedCellId)
+        collectionView?.register(RecommendedCell.self, forCellWithReuseIdentifier: recommendedCellId)
+        
+        
+        
+        collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 60, 0)
         
         collectionView?.isPagingEnabled = true
         
     }
+    
+    
     
     // Function setting up the menu bar
     private func setUpMenuBar(){
@@ -67,7 +119,10 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         
         view.addSubview(menuBar)
         view.addContraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addContraintsWithFormat(format: "V:[v0(50)]|", views: menuBar)
+        view.addContraintsWithFormat(format: "V:[v0(60)]|", views: menuBar)
+
+        
+        
         
     }
     
@@ -91,7 +146,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     func scrollToMenuIndex(menuIndex: Int) {
         let indexPath = IndexPath(item: menuIndex, section: 0)
-        collectionView?.scrollToItem(at: indexPath, at: .init(rawValue: 0), animated: true)
+        collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         setNavBarTitles(index: Int(menuIndex))
     }
     
@@ -108,20 +163,32 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         
         let index = targetContentOffset.pointee.x / view.frame.width
         let indexPath = IndexPath(item: Int(index), section: 0)
-        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .init(rawValue: 0))
+        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
         
         setNavBarTitles(index: Int(index))
     }
     
-    func handleSearch(){
+    @objc func handleSearch(){
         print("Search button pressed")
     }
     
-    func handleProfile(){
+    @objc func handleProfile(){
         print("Profile icon pressed")
+        if Auth.auth().currentUser != nil {
+            view.heroID = "toProfile"
+            profileVC.isHeroEnabled = true
+            navigationController?.present(profileVC, animated: true, completion: nil)
+        } else {
+            view.heroID = "toLogIn"
+            signInVC.isHeroEnabled = true
+            navigationController?.present(signInVC, animated: true, completion: nil)
+        }
+        
+        
     }
-    func handleAddEvent(){
-        print("Add event pressed")
+    @objc func handleAddEvent(){
+        //var authorizer  = FirebaseAuthorizer()
+        //var test = Test(toPrint: "Hello, Jose!", authorizer: authorizer)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -129,18 +196,28 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath)
+        
         collectionView.showsHorizontalScrollIndicator = false
-        
-        
-        return cell
+        switch indexPath.item {
+        case 0:
+            return cell
+        case 1:
+            return collectionView.dequeueReusableCell(withReuseIdentifier: localCellId, for: indexPath)
+        case 2:
+            return collectionView.dequeueReusableCell(withReuseIdentifier: likedCellId, for: indexPath)
+        case 3:
+            return collectionView.dequeueReusableCell(withReuseIdentifier: recommendedCellId, for: indexPath)
+        default:
+            return cell
+        }
+        //return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height - 50)
+        return CGSize(width: view.frame.width, height: view.frame.height - 60)
     }
-    
-
 
 }
 

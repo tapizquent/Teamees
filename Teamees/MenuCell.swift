@@ -36,8 +36,9 @@ class MenuCell: BaseCell {
         
         
         addSubview(imageView)
-        addContraintsWithFormat(format: "H:[v0(28)]", views: imageView)
-        addContraintsWithFormat(format: "V:[v0(28)]", views: imageView)
+        addContraintsWithFormat(format: "H:[v0(25)]", views: imageView)
+        addContraintsWithFormat(format: "V:[v0(25)]", views: imageView)
+        //backgroundColor = .white
         
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
         

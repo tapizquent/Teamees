@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.addSubview(statusBarBackgroundView)
         window?.addContraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
         window?.addContraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
+        
+        FirebaseApp.configure()
+        
+        
         
         return true
     }

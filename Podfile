@@ -9,6 +9,8 @@ target 'Teamees' do
   pod 'Firebase'
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'
+  pod 'DZNEmptyDataSet'
+  pod 'Hero', '~> 1.0.0-alpha.4'
 
   target 'TeameesTests' do
     inherit! :search_paths

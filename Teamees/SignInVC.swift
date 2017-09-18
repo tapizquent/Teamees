@@ -12,7 +12,11 @@ import Firebase
 
 class SignInVC: UIViewController {
     
-   // let FIRAuthorizer = FirebaseAuthorizer()
+    let userAuthenticator: Authenticator? = FirebaseAuthorizer()
+    let userCreator: UserCreator? = FirebaseUserCreator()
+    let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
+    //var mainVC = MainVC()
+
     var handle: AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +72,12 @@ class SignInVC: UIViewController {
     
     @objc func signInButtonPressed(){
         if let email = emailTextField.text {
-            if let pass = passwordTextField.text {
-                //FIRAuthorizer.authenticateWithEmailAndPass(email, pass)
+            if let password = passwordTextField.text {
+                userAuthenticator?.authenticateWithEmailAndPass(email, password)
+            }
+            if userStatusChecker?.isUserAuthenticated() == true {
+                //mainVC.userStatusChecker?.isUserAuthenticated() = false
+                dismiss(animated: true, completion: nil)
             }
         }
     }

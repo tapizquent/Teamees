@@ -19,6 +19,10 @@
 		D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0011F6B768F00B699FC /* SlideAnimator.swift */; };
 		D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0031F6C655F00B699FC /* ProfileVC.swift */; };
 		D082F0061F6CD8E200B699FC /* FIrebaseAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */; };
+		D082F0081F6FA6F700B699FC /* FIrebaseUserCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0071F6FA6F700B699FC /* FIrebaseUserCreator.swift */; };
+		D082F00A1F6FA71200B699FC /* UserCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0091F6FA71200B699FC /* UserCreator.swift */; };
+		D082F00C1F6FAA2A00B699FC /* UserStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */; };
+		D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */; };
 		D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23911F65A96300B944B4 /* AppDelegate.swift */; };
 		D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23931F65A96300B944B4 /* MainVC.swift */; };
 		D0DD23971F65A96300B944B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DD23951F65A96300B944B4 /* Main.storyboard */; };
@@ -63,6 +67,10 @@
 		D082F0011F6B768F00B699FC /* SlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimator.swift; sourceTree = "<group>"; };
 		D082F0031F6C655F00B699FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseAuthorizer.swift; sourceTree = "<group>"; };
+		D082F0071F6FA6F700B699FC /* FIrebaseUserCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseUserCreator.swift; sourceTree = "<group>"; };
+		D082F0091F6FA71200B699FC /* UserCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreator.swift; sourceTree = "<group>"; };
+		D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusChecker.swift; sourceTree = "<group>"; };
+		D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStatusChecker.swift; sourceTree = "<group>"; };
 		D0DD238E1F65A96300B944B4 /* Teamees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teamees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DD23911F65A96300B944B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DD23931F65A96300B944B4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -194,7 +202,6 @@
 				D082EFEF1F6B3A9A00B699FC /* LocalCell.swift */,
 				D082EFF41F6B545300B699FC /* LikedCell.swift */,
 				D082EFF61F6B566300B699FC /* RecommendedCell.swift */,
-				D082EFF81F6B5AEB00B699FC /* Authorizer.swift */,
 				D082F0011F6B768F00B699FC /* SlideAnimator.swift */,
 			);
 			name = View;
@@ -204,8 +211,13 @@
 			isa = PBXGroup;
 			children = (
 				D0DD23BF1F6752B900B944B4 /* Event.swift */,
+				D082EFF81F6B5AEB00B699FC /* Authorizer.swift */,
 				D0DD23C11F67580900B944B4 /* User.swift */,
 				D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */,
+				D082F0071F6FA6F700B699FC /* FIrebaseUserCreator.swift */,
+				D082F0091F6FA71200B699FC /* UserCreator.swift */,
+				D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */,
+				D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -447,8 +459,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D082F0081F6FA6F700B699FC /* FIrebaseUserCreator.swift in Sources */,
 				D0DD23C01F6752B900B944B4 /* Event.swift in Sources */,
 				D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */,
+				D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */,
 				D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */,
 				D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */,
 				D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */,
@@ -460,10 +474,12 @@
 				D082EFF91F6B5AEB00B699FC /* Authorizer.swift in Sources */,
 				D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */,
 				D082EFFE1F6B62B800B699FC /* SignInVC.swift in Sources */,
+				D082F00C1F6FAA2A00B699FC /* UserStatusChecker.swift in Sources */,
 				D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */,
 				D0DD23C61F6839CF00B944B4 /* TopCell.swift in Sources */,
 				D082F0001F6B62CC00B699FC /* CreateAccountVC.swift in Sources */,
 				D082F0061F6CD8E200B699FC /* FIrebaseAuthorizer.swift in Sources */,
+				D082F00A1F6FA71200B699FC /* UserCreator.swift in Sources */,
 				D082EFF51F6B545300B699FC /* LikedCell.swift in Sources */,
 				D082EFF01F6B3A9A00B699FC /* LocalCell.swift in Sources */,
 			);

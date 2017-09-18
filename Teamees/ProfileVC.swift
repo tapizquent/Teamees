@@ -11,7 +11,10 @@ import Firebase
 
 class ProfileVC: UIViewController {
     
-   //let firebaseAuth = Auth.auth()
+    let userAuthenticator: Authenticator? = FirebaseAuthorizer()
+    let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
+    //let mainVC = MainVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,13 +41,9 @@ class ProfileVC: UIViewController {
     }
     
     @objc func signOutUser(){
-        if Auth.auth().currentUser != nil {
-            do {
-                try Auth.auth().signOut()
-                print("JOSE: User successfully signed out")
-            } catch let signOutError as NSError {
-                print ("JOSE: Error signing out: %@", signOutError)
-            }
+        if userStatusChecker?.isUserAuthenticated() == true {
+            userAuthenticator?.signOutUser()
+            dismiss(animated: true, completion: nil)
         }
     }
 }

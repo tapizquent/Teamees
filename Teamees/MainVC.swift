@@ -12,7 +12,7 @@ import Firebase
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    //let FIRAuth = FirebaseAuthorizer()
+    //let FIRAuth = FirebaseAuthorizer(
     
     //var hidingNavigationManager: HidingNavigationBarManager?
     let topCellId = "topCellId"
@@ -37,7 +37,8 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
+        let currentUserUid = userStatusChecker?.getCurrentUserUid()
         //isHeroEnabled = true
         setUpNavigationBar()
         setUpEventsCollectionView()
@@ -57,7 +58,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 //        let height: CGFloat = 100 //whatever height you want
 //        let bounds = self.navigationController!.navigationBar.bounds
 //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-        
+        collectionView?.reloadData()
     }
     
     override func viewDidLayoutSubviews() {

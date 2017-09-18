@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
-protocol Authorizer {
+protocol Authenticator {
     func authenticateWithEmailAndPass(_ email: String, _ pass: String)
     func authenticateWithAccessToken(_ token: String)
+    func authorizerWithCredential(_ credential: AuthCredential)
+    func signOutUser()
 }

@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,19 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = UINavigationController(rootViewController: MainVC(collectionViewLayout: layout))
         
-        UINavigationBar.appearance().barTintColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(complementaryFlatColorOf: MAIN_BACKGROUND_COLOR)
         
         UIApplication.shared.statusBarStyle = .lightContent
         
         let statusBarBackgroundView = UIView()
-        statusBarBackgroundView.backgroundColor = UIColor(red:0.03, green:0.03, blue:0.03, alpha:1.0)
+        statusBarBackgroundView.backgroundColor = UIColor(complementaryFlatColorOf: MAIN_BACKGROUND_COLOR, withAlpha: 0)//UIColor(red:0.03, green:0.03, blue:0.03, alpha:1.0)
         window?.addSubview(statusBarBackgroundView)
         window?.addContraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
         window?.addContraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
         
         FirebaseApp.configure()
-        
-        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
@@ -65,6 +67,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ app: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
 

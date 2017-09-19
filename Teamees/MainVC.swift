@@ -9,16 +9,20 @@
 import UIKit
 import Hero
 import Firebase
+import SwiftKeychainWrapper
+//import IGListKit
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //let FIRAuth = FirebaseAuthorizer(
+    let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
     
     //var hidingNavigationManager: HidingNavigationBarManager?
     let topCellId = "topCellId"
     let localCellId = "localCellId"
     let likedCellId = "likedCellId"
     let recommendedCellId = "recommendedCellId"
+    let emptyCellId = "emptyCellId"
     
     //View Controllers
     let signInVC = SignInVC()
@@ -37,15 +41,18 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
-        let currentUserUid = userStatusChecker?.getCurrentUserUid()
+        self.navigationController?.hidesNavigationBarHairline = true
+        
+        
+        //let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
+        //let currentUserUid = userStatusChecker?.getCurrentUserUid()
         //isHeroEnabled = true
         setUpNavigationBar()
         setUpEventsCollectionView()
         setUpMenuBar()
         setUpNavigationBarIcons()
         isHeroEnabled = true
-        if Auth.auth().currentUser != nil {
+        if userStatusChecker?.isUserAuthenticated() == true {
             print("JOSE: User is signed in")
         } else {
             print("JOSE: No User signed in yet")
@@ -53,12 +60,12 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
         //hidingNavigationManager?.viewWillAppear(true)
 //        let height: CGFloat = 100 //whatever height you want
 //        let bounds = self.navigationController!.navigationBar.bounds
 //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-        collectionView?.reloadData()
+        self.collectionView?.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -95,14 +102,14 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             flowlayout.minimumLineSpacing = 0
         }
         
-        collectionView?.backgroundColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)
+        collectionView?.backgroundColor = MAIN_BACKGROUND_COLOR
         
         
         collectionView?.register(TopCell.self, forCellWithReuseIdentifier: topCellId)
         collectionView?.register(LocalCell.self, forCellWithReuseIdentifier: localCellId)
         collectionView?.register(LikedCell.self, forCellWithReuseIdentifier: likedCellId)
         collectionView?.register(RecommendedCell.self, forCellWithReuseIdentifier: recommendedCellId)
-        
+        collectionView?.register(EmptyCell.self, forCellWithReuseIdentifier: emptyCellId)
         
         
         collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
@@ -174,17 +181,11 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     @objc func handleProfile(){
-        print("Profile icon pressed")
-        if Auth.auth().currentUser != nil {
-            view.heroID = "toProfile"
-            profileVC.isHeroEnabled = true
-            navigationController?.present(profileVC, animated: true, completion: nil)
+        if userStatusChecker?.isUserAuthenticated() == true {
+            navigationController?.pushViewController(profileVC, animated: true)
         } else {
-            view.heroID = "toLogIn"
-            signInVC.isHeroEnabled = true
-            navigationController?.present(signInVC, animated: true, completion: nil)
+            navigationController?.pushViewController(signInVC, animated: true)
         }
-        
         
     }
     @objc func handleAddEvent(){
@@ -198,26 +199,37 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: topCellId, for: indexPath)
-        
         collectionView.showsHorizontalScrollIndicator = false
+        
         switch indexPath.item {
         case 0:
-            return cell
+            return dequeueCells(topCellId, indexPath)
         case 1:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: localCellId, for: indexPath)
+            return dequeueCells(localCellId, indexPath)
         case 2:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: likedCellId, for: indexPath)
+            if userStatusChecker?.isUserAuthenticated() == true {
+                return dequeueCells(likedCellId, indexPath)
+            } else {
+                return dequeueCells(emptyCellId, indexPath)
+            }
         case 3:
-            return collectionView.dequeueReusableCell(withReuseIdentifier: recommendedCellId, for: indexPath)
+            if userStatusChecker?.isUserAuthenticated() == true {
+                return dequeueCells(recommendedCellId, indexPath)
+            } else {
+                return dequeueCells(emptyCellId, indexPath)
+            }
         default:
-            return cell
+            return dequeueCells(emptyCellId, indexPath)
         }
-        //return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height - 60)
+    }
+    
+    func dequeueCells(_ reuseIdentifier: String, _ indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView?.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        return cell!
     }
 
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -17,7 +18,7 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.dataSource = self
         cv.delegate = self
-        cv.backgroundColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)
+        cv.backgroundColor = MAIN_BACKGROUND_COLOR
         return cv
     }()
 
@@ -28,12 +29,13 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
         super.setUpView()
         
         addSubview(collectionView)
-        addContraintsWithFormat(format: "H:|-10-[v0]-10-|", views: collectionView)
-        addContraintsWithFormat(format: "V:|-10-[v0]|", views: collectionView)
+        addContraintsWithFormat(format: "H:|[v0]|", views: collectionView)
+        addContraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         
         collectionView.register(EventCell.self, forCellWithReuseIdentifier: cellId)
         //backgroundColor = .brown
         fetchEvents()
+        
     }
     
     func fetchEvents(){
@@ -41,8 +43,21 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
         let event = Event()
         event.title = "Local Event"
         event.description = "This is where the description will be"
+        event.thumbnailImageName = "camp"
         event.likes = 44
         events?.append(event)
+        let event2 = Event()
+        event2.title = "Soccer Whatever Event"
+        event2.description = "This is where the description will be"
+        event2.thumbnailImageName = "ocean"
+        event2.likes = 55
+        events?.append(event2)
+        let event3 = Event()
+        event3.title = "Ocean Event"
+        event3.description = "This is where the description will be"
+        event3.thumbnailImageName = "soccer"
+        event3.likes = 55
+        events?.append(event3)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

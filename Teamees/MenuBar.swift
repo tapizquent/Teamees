@@ -18,7 +18,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor(red:0.02, green:0.02, blue:0.02, alpha:1.0)
+        cv.backgroundColor = MAIN_BACKGROUND_COLOR
         cv.dataSource = self
         cv.delegate = self
         return cv
@@ -33,7 +33,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         addSubview(collectionView)
         addContraintsWithFormat(format: "H:|[v0]|", views: collectionView)
-        addContraintsWithFormat(format: "V:|[v0(50)]|", views: collectionView)
+        addContraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         collectionView.isScrollEnabled = false
         
         let selectedItem = NSIndexPath(item: 0, section: 0)
@@ -80,7 +80,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 4, height: frame.height)
+        return CGSize(width: (frame.width / 4) , height: frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

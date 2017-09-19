@@ -9,6 +9,7 @@
 import Firebase
 
 struct FirebaseUserCreator: UserCreator {
+    
     func createUserWithEmailAndPassword(_ email: String, _ password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {

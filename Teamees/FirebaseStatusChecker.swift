@@ -7,16 +7,31 @@
 //
 
 import Firebase
+import SwiftKeychainWrapper
 
 class FirebaseStatusChecker: UserStatusChecker {
     
+    func didUserChangeStatus() -> Bool {
+        var authToken: Bool = false
+            Auth.auth().addStateDidChangeListener { auth, user in
+                if user != nil {
+                    authToken = true
+                    print("JOSE: User is logged in")
+                } else {
+                   authToken = false
+                    print("JOSE: User is NOT logged in")
+                }
+            }
+            return authToken
+    }
+    
     func isUserAuthenticated() -> Bool{
-        if Auth.auth().currentUser != nil {
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID){
             return true
         } else {
             return false
         }
-        
+
     }
     
     func getCurrentUserUid() -> String{

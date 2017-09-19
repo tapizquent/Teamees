@@ -15,6 +15,8 @@ class BaseCell: UICollectionViewCell {
         setUpView()
     }
     
+    
+    
     func setUpView(){
     
     }

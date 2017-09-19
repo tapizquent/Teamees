@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class EventCell: BaseCell {
     
@@ -17,6 +18,7 @@ class EventCell: BaseCell {
             if let thumnailImage = event?.thumbnailImageName {
                 thumbnailImageView.image = UIImage(named: thumnailImage)
                 backgroundImageView.image = UIImage(named: thumnailImage)
+                separatorView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image).flatten()
             }
             
             descriptionLabel.text = event?.description
@@ -28,17 +30,17 @@ class EventCell: BaseCell {
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "camp")
+        //imageView.image = UIImage(named: "camp")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.alpha = 0.15
+        imageView.alpha = 0
         
         return imageView
     }()
     
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "camp")
+        //imageView.image = UIImage(named: "camp")
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 40
         imageView.contentMode = .scaleAspectFill
@@ -85,7 +87,7 @@ class EventCell: BaseCell {
     
     let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red:0.1, green:0.1, blue:0.1, alpha:0.3)
+        view.alpha = 0.8
         return view
     }()
     
@@ -107,11 +109,11 @@ class EventCell: BaseCell {
         addContraintsWithFormat(format: "V:|[v0]|", views: backgroundImageView)
         
         //Contraints for ImageView of Event
-        addContraintsWithFormat(format: "H:|-10-[v0(80)]-10-[v1]-10-|", views: thumbnailImageView, titleLabel)
+        addContraintsWithFormat(format: "H:|-16-[v0(80)]-4-[v1]-16-|", views: thumbnailImageView, titleLabel)
         addContraintsWithFormat(format: "V:|-10-[v0(80)]", views: thumbnailImageView)
         
         //Contraints for Separator Line between cells
-        addContraintsWithFormat(format: "H:|[v0]|", views: separatorView)
+        addContraintsWithFormat(format: "H:|-16-[v0]|", views: separatorView)
         addContraintsWithFormat(format: "V:[v0(1)]|", views: separatorView)
         
         //Height for Title Label
@@ -139,6 +141,7 @@ class EventCell: BaseCell {
         addContraintsWithFormat(format: "V:[v0(15)]", views: likesLabel)
         addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .left, relatedBy: .equal, toItem: likeButtonImage, attribute: .left, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .right, relatedBy: .equal, toItem: likeButtonImage, attribute: .right, multiplier: 1, constant: 0))
+        
     }
     
     

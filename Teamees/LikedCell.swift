@@ -10,8 +10,9 @@ import UIKit
 import Firebase
 
 class LikedCell: TopCell {
+    let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
     override func fetchEvents() {
-        if Auth.auth().currentUser != nil {
+        if userStatusChecker?.isUserAuthenticated() == true{
             self.events = [Event]()
             let event = Event()
             event.title = "Different Post in Liked Section"
@@ -21,6 +22,6 @@ class LikedCell: TopCell {
         } else {
             
         }
-        
+
     }
 }

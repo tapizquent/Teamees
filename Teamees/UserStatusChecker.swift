@@ -8,5 +8,6 @@
 
 protocol UserStatusChecker {
     func isUserAuthenticated() -> Bool
+    func didUserChangeStatus() -> Bool
     func getCurrentUserUid() -> String
 }

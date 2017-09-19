@@ -13,16 +13,19 @@
 		D082EFF21F6B448D00B699FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D082EFF11F6B448D00B699FC /* GoogleService-Info.plist */; };
 		D082EFF51F6B545300B699FC /* LikedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF41F6B545300B699FC /* LikedCell.swift */; };
 		D082EFF71F6B566300B699FC /* RecommendedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF61F6B566300B699FC /* RecommendedCell.swift */; };
-		D082EFF91F6B5AEB00B699FC /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF81F6B5AEB00B699FC /* Authorizer.swift */; };
+		D082EFF91F6B5AEB00B699FC /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFF81F6B5AEB00B699FC /* Authenticator.swift */; };
 		D082EFFE1F6B62B800B699FC /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFFD1F6B62B800B699FC /* SignInVC.swift */; };
 		D082F0001F6B62CC00B699FC /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082EFFF1F6B62CC00B699FC /* CreateAccountVC.swift */; };
 		D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0011F6B768F00B699FC /* SlideAnimator.swift */; };
 		D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0031F6C655F00B699FC /* ProfileVC.swift */; };
-		D082F0061F6CD8E200B699FC /* FIrebaseAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */; };
+		D082F0061F6CD8E200B699FC /* FIrebaseAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0051F6CD8E200B699FC /* FIrebaseAuthenticator.swift */; };
 		D082F0081F6FA6F700B699FC /* FIrebaseUserCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0071F6FA6F700B699FC /* FIrebaseUserCreator.swift */; };
 		D082F00A1F6FA71200B699FC /* UserCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0091F6FA71200B699FC /* UserCreator.swift */; };
 		D082F00C1F6FAA2A00B699FC /* UserStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */; };
 		D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */; };
+		D0DA55A01F7061B1000208EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA559F1F7061B1000208EB /* Constants.swift */; };
+		D0DA55A21F70A36F000208EB /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A11F70A36F000208EB /* EmptyCell.swift */; };
+		D0DA55A51F70AD57000208EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A41F70AD57000208EB /* DataService.swift */; };
 		D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23911F65A96300B944B4 /* AppDelegate.swift */; };
 		D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23931F65A96300B944B4 /* MainVC.swift */; };
 		D0DD23971F65A96300B944B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DD23951F65A96300B944B4 /* Main.storyboard */; };
@@ -60,17 +63,22 @@
 		D082EFF31F6B455100B699FC /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		D082EFF41F6B545300B699FC /* LikedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCell.swift; sourceTree = "<group>"; };
 		D082EFF61F6B566300B699FC /* RecommendedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCell.swift; sourceTree = "<group>"; };
-		D082EFF81F6B5AEB00B699FC /* Authorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorizer.swift; sourceTree = "<group>"; };
+		D082EFF81F6B5AEB00B699FC /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		D082EFFC1F6B615600B699FC /* Teamees.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Teamees.entitlements; sourceTree = "<group>"; };
 		D082EFFD1F6B62B800B699FC /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		D082EFFF1F6B62CC00B699FC /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		D082F0011F6B768F00B699FC /* SlideAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimator.swift; sourceTree = "<group>"; };
 		D082F0031F6C655F00B699FC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseAuthorizer.swift; sourceTree = "<group>"; };
+		D082F0051F6CD8E200B699FC /* FIrebaseAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseAuthenticator.swift; sourceTree = "<group>"; };
 		D082F0071F6FA6F700B699FC /* FIrebaseUserCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseUserCreator.swift; sourceTree = "<group>"; };
 		D082F0091F6FA71200B699FC /* UserCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreator.swift; sourceTree = "<group>"; };
 		D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusChecker.swift; sourceTree = "<group>"; };
 		D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStatusChecker.swift; sourceTree = "<group>"; };
+		D0DA559F1F7061B1000208EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D0DA55A11F70A36F000208EB /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
+		D0DA55A41F70AD57000208EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		D0DA55A81F70BCD7000208EB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D0DA55A91F70BCD7000208EB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D0DD238E1F65A96300B944B4 /* Teamees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teamees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DD23911F65A96300B944B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DD23931F65A96300B944B4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -115,6 +123,8 @@
 		190AEF465A8CA2DCF44FFF15 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0DA55A91F70BCD7000208EB /* FBSDKCoreKit.framework */,
+				D0DA55A81F70BCD7000208EB /* FBSDKLoginKit.framework */,
 				C40786B6BC15E25832FBA8E9 /* Pods_Teamees.framework */,
 				EDB4C62ECCA34864D26F43B6 /* Pods_TeameesTests.framework */,
 			);
@@ -130,6 +140,14 @@
 				231D4E0AF270A1792643EFEE /* Pods-TeameesTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D0DA55A31F70AD42000208EB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D0DA55A41F70AD57000208EB /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D0DD23851F65A96300B944B4 = {
@@ -155,8 +173,9 @@
 		D0DD23901F65A96300B944B4 /* Teamees */ = {
 			isa = PBXGroup;
 			children = (
+				D0DA55A31F70AD42000208EB /* Services */,
 				D082EFFC1F6B615600B699FC /* Teamees.entitlements */,
-				D0DD23B61F65CBD700B944B4 /* Extensions */,
+				D0DD23B61F65CBD700B944B4 /* Extensions and Constants */,
 				D0DD23B31F65A97D00B944B4 /* Model */,
 				D0DD23B21F65A97400B944B4 /* View */,
 				D0DD23B11F65A96A00B944B4 /* Controller */,
@@ -203,6 +222,7 @@
 				D082EFF41F6B545300B699FC /* LikedCell.swift */,
 				D082EFF61F6B566300B699FC /* RecommendedCell.swift */,
 				D082F0011F6B768F00B699FC /* SlideAnimator.swift */,
+				D0DA55A11F70A36F000208EB /* EmptyCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -211,9 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				D0DD23BF1F6752B900B944B4 /* Event.swift */,
-				D082EFF81F6B5AEB00B699FC /* Authorizer.swift */,
+				D082EFF81F6B5AEB00B699FC /* Authenticator.swift */,
 				D0DD23C11F67580900B944B4 /* User.swift */,
-				D082F0051F6CD8E200B699FC /* FIrebaseAuthorizer.swift */,
+				D082F0051F6CD8E200B699FC /* FIrebaseAuthenticator.swift */,
 				D082F0071F6FA6F700B699FC /* FIrebaseUserCreator.swift */,
 				D082F0091F6FA71200B699FC /* UserCreator.swift */,
 				D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */,
@@ -222,12 +242,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		D0DD23B61F65CBD700B944B4 /* Extensions */ = {
+		D0DD23B61F65CBD700B944B4 /* Extensions and Constants */ = {
 			isa = PBXGroup;
 			children = (
 				D0DD23B71F65CBF100B944B4 /* ConstraintViews.swift */,
+				D0DA559F1F7061B1000208EB /* Constants.swift */,
 			);
-			name = Extensions;
+			name = "Extensions and Constants";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,18 +436,32 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Teamees/Pods-Teamees-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D082F0081F6FA6F700B699FC /* FIrebaseUserCreator.swift in Sources */,
+				D0DA55A51F70AD57000208EB /* DataService.swift in Sources */,
 				D0DD23C01F6752B900B944B4 /* Event.swift in Sources */,
 				D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */,
 				D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */,
@@ -471,17 +507,19 @@
 				D0DD23C21F67580900B944B4 /* User.swift in Sources */,
 				D082EFF71F6B566300B699FC /* RecommendedCell.swift in Sources */,
 				D0DD23B81F65CBF100B944B4 /* ConstraintViews.swift in Sources */,
-				D082EFF91F6B5AEB00B699FC /* Authorizer.swift in Sources */,
+				D082EFF91F6B5AEB00B699FC /* Authenticator.swift in Sources */,
 				D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */,
+				D0DA55A21F70A36F000208EB /* EmptyCell.swift in Sources */,
 				D082EFFE1F6B62B800B699FC /* SignInVC.swift in Sources */,
 				D082F00C1F6FAA2A00B699FC /* UserStatusChecker.swift in Sources */,
 				D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */,
 				D0DD23C61F6839CF00B944B4 /* TopCell.swift in Sources */,
 				D082F0001F6B62CC00B699FC /* CreateAccountVC.swift in Sources */,
-				D082F0061F6CD8E200B699FC /* FIrebaseAuthorizer.swift in Sources */,
+				D082F0061F6CD8E200B699FC /* FIrebaseAuthenticator.swift in Sources */,
 				D082F00A1F6FA71200B699FC /* UserCreator.swift in Sources */,
 				D082EFF51F6B545300B699FC /* LikedCell.swift in Sources */,
 				D082EFF01F6B3A9A00B699FC /* LocalCell.swift in Sources */,
+				D0DA55A01F7061B1000208EB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +679,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapizquent.Teamees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_INCLUDE_PATHS = /Users/tapizquent/Documents/Swift/FacebookSDK;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -657,7 +696,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tapizquent.Teamees;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_INCLUDE_PATHS = /Users/tapizquent/Documents/Swift/FacebookSDK;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

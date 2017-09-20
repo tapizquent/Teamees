@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -18,7 +19,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = MAIN_BACKGROUND_COLOR
+        cv.backgroundColor = MAIN_BACKGROUND_COLOR.darken(byPercentage: 1)
         cv.dataSource = self
         cv.delegate = self
         return cv
@@ -47,7 +48,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     func setUpHorizontalBar() {
         let horizontalBarView = UIView()
-        horizontalBarView.backgroundColor = .white
+        horizontalBarView.backgroundColor = UIColor.white
         horizontalBarView.alpha = 0.9
         horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(horizontalBarView)

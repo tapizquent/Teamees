@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Hero
 import Firebase
 import SwiftKeychainWrapper
-//import IGListKit
+import ChameleonFramework
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -41,7 +40,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.hidesNavigationBarHairline = true
+        
         
         
         //let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
@@ -51,7 +50,6 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         setUpEventsCollectionView()
         setUpMenuBar()
         setUpNavigationBarIcons()
-        isHeroEnabled = true
         if userStatusChecker?.isUserAuthenticated() == true {
             print("JOSE: User is signed in")
         } else {
@@ -80,7 +78,10 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     func setUpNavigationBar(){
         navigationController?.navigationBar.isTranslucent = false
-        
+        // Sets Bar's Shadow Image (Color) //
+        navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .clear), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: UIColor.flatBlackColorDark())
+        //navigationController?.hidesNavigationBarHairline = true
         
         //navigationController?.hidesBarsOnSwipe = true
         

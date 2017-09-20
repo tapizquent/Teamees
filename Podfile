@@ -10,12 +10,10 @@ target 'Teamees' do
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'
   pod 'FirebaseDatabase'
-  pod 'DZNEmptyDataSet'
-  pod 'Hero', '~> 1.0.0-alpha.4'
   pod 'SwiftKeychainWrapper'
-  pod 'IGListKit'
   pod 'FBSDKLoginKit'
   pod 'ChameleonFramework/Swift'
+
 
   target 'TeameesTests' do
     inherit! :search_paths

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Hero
 import Firebase
 import SwiftKeychainWrapper
 import FBSDKCoreKit
@@ -47,35 +46,54 @@ class SignInVC: UIViewController {
         return image
     }()
     
+    let logoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Teamees"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 44)
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
     let formView: UIView = {
         let view = UIView()
-        
-        view.heroID = "toLogIn"
-        view.heroModifiers = [.fade]
         return view
     }()
     
     let emailTextField: UITextField = {
         let textField = UITextField()
+        let imageView = UIImageView()
+        let leftImage = UIImage(named: "account_icon")
+        imageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        imageView.image = leftImage
         textField.font = UIFont(name: "HelveticaNeue", size: 18)
-        textField.attributedPlaceholder = NSAttributedString(string: "Email address", attributes: [.foregroundColor: UIColor.lightText])
+        textField.attributedPlaceholder = NSAttributedString(string: "Email address", attributes: [.foregroundColor: UIColor(red:60/255, green:60/255, blue:60/255, alpha:1.0)])
         textField.textColor = .white
         textField.borderStyle = .none
         textField.autocapitalizationType = .none
         textField.keyboardAppearance = .dark
         textField.textAlignment = .center
+        textField.leftView = imageView
+        textField.leftViewMode = .always
         return textField
     }()
     
     let passwordTextField: UITextField = {
         let textField = UITextField()
+        let imageView = UIImageView()
+        let leftImage = UIImage(named: "lock_icon")
+        imageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        imageView.image = leftImage
         textField.font = UIFont(name: "HelveticaNeue", size: 18)
-        textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor: UIColor.lightText])
+        textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor: UIColor(red:60/255, green:60/255, blue:60/255, alpha:1.0)])
         textField.textColor = .white
         textField.borderStyle = .none
+        textField.autocapitalizationType = .none
         textField.keyboardAppearance = .dark
-        textField.isSecureTextEntry = true
         textField.textAlignment = .center
+        textField.isSecureTextEntry = true
+        textField.leftView = imageView
+        textField.leftViewMode = .always
         return textField
     }()
     
@@ -92,8 +110,20 @@ class SignInVC: UIViewController {
     let facebookButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "facebookLogo"), for: .normal)
-        //button.layer.cornerRadius = 20.0
         return button
+    }()
+    
+    let emailBottomLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.flatBlackColorDark()
+        view.alpha = 1
+        return view
+    }()
+    let passwordBottomLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.flatBlackColorDark()
+        view.alpha = 1
+        return view
     }()
     
     @objc func signInButtonPressed(){
@@ -108,22 +138,27 @@ class SignInVC: UIViewController {
     
     func setUpSignInForm(){
         
-        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [MAIN_BACKGROUND_COLOR, ComplementaryFlatColorOf(color: MAIN_BACKGROUND_COLOR)])//MAIN_BACKGROUND_COLOR
+        view.backgroundColor = MAIN_BACKGROUND_COLOR
         view.addSubview(formView)
         view.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: formView)
         view.addContraintsWithFormat(format: "V:|[v0]|", views: formView)
-        view.addConstraint(NSLayoutConstraint(item: formView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
+//        view.addConstraint(NSLayoutConstraint(item: formView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
 
-        
+        formView.addSubview(logoLabel)
         formView.addSubview(emailTextField)
+        formView.addSubview(emailBottomLine)
         formView.addSubview(passwordTextField)
+        formView.addSubview(passwordBottomLine)
         formView.addSubview(signInButton)
         formView.addSubview(facebookButton)
         
         //Contraints for Email and Password Text Fields
+        formView.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: logoLabel)
         formView.addContraintsWithFormat(format: "H:|-16-[v0]-16-|", views: emailTextField)
         formView.addContraintsWithFormat(format: "H:|-16-[v0]-16-|", views: passwordTextField)
-        formView.addContraintsWithFormat(format: "V:|-200-[v0(50)]-30-[v1(50)]-50-[v2(50)]-40-[v3(40)]", views: emailTextField, passwordTextField, signInButton, facebookButton)
+        formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: emailBottomLine)
+        formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: passwordBottomLine)
+        formView.addContraintsWithFormat(format: "V:|-60-[v0]-60-[v1(50)]-(-4)-[v2(1)]-30-[v3(50)]-(-4)-[v4(1)]-50-[v5(50)]-30-[v6(40)]", views: logoLabel ,emailTextField, emailBottomLine, passwordTextField, passwordBottomLine, signInButton, facebookButton)
         
         //Contraints for Sign In Button
         formView.addContraintsWithFormat(format: "H:|-16-[v0]-16-|", views: signInButton)

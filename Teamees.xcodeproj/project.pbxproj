@@ -26,6 +26,7 @@
 		D0DA55A01F7061B1000208EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA559F1F7061B1000208EB /* Constants.swift */; };
 		D0DA55A21F70A36F000208EB /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A11F70A36F000208EB /* EmptyCell.swift */; };
 		D0DA55A51F70AD57000208EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A41F70AD57000208EB /* DataService.swift */; };
+		D0DA55AB1F71CC11000208EB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55AA1F71CC11000208EB /* UIImageExtension.swift */; };
 		D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23911F65A96300B944B4 /* AppDelegate.swift */; };
 		D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23931F65A96300B944B4 /* MainVC.swift */; };
 		D0DD23971F65A96300B944B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0DD23951F65A96300B944B4 /* Main.storyboard */; };
@@ -79,6 +80,7 @@
 		D0DA55A41F70AD57000208EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		D0DA55A81F70BCD7000208EB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D0DA55A91F70BCD7000208EB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D0DA55AA1F71CC11000208EB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		D0DD238E1F65A96300B944B4 /* Teamees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Teamees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0DD23911F65A96300B944B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0DD23931F65A96300B944B4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				D0DD23B71F65CBF100B944B4 /* ConstraintViews.swift */,
 				D0DA559F1F7061B1000208EB /* Constants.swift */,
+				D0DA55AA1F71CC11000208EB /* UIImageExtension.swift */,
 			);
 			name = "Extensions and Constants";
 			sourceTree = "<group>";
@@ -438,13 +441,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Teamees/Pods-Teamees-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
-				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -453,13 +453,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -499,6 +496,7 @@
 				D0DD23C01F6752B900B944B4 /* Event.swift in Sources */,
 				D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */,
 				D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */,
+				D0DA55AB1F71CC11000208EB /* UIImageExtension.swift in Sources */,
 				D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */,
 				D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */,
 				D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */,

@@ -8,9 +8,7 @@
 
 import UIKit
 
-
 class RecommendedCell: TopCell {
-    override func fetchEvents() {
-        
-    }
+    
+    
 }

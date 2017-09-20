@@ -8,7 +8,6 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - DZNEmptyDataSet (1.8.1)
   - FBSDKCoreKit (4.26.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.26.0):
@@ -51,12 +50,6 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
-  - Hero (1.0.0-alpha.4)
-  - IGListKit (3.1.1):
-    - IGListKit/Default (= 3.1.1)
-  - IGListKit/Default (3.1.1):
-    - IGListKit/Diffing
-  - IGListKit/Diffing (3.1.1)
   - leveldb-library (1.18.3)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -67,20 +60,16 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
-  - DZNEmptyDataSet
   - FBSDKLoginKit
   - Firebase
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseStorage
-  - Hero (~> 1.0.0-alpha.4)
-  - IGListKit
   - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
@@ -92,12 +81,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: 661fc1f8d4131891d256b62e82a45ace8b3f0c3b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
-  Hero: 6ab58fdfb16c75ce9c6bfad48ef6abb54780b263
-  IGListKit: cb97f405ae43e59fe1da74271e19427ec20d3c07
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 656dda8b32f13d8806602a72bf47705b38c46141
+PODFILE CHECKSUM: 703b15195310a051cdb8d8300595708613eb2ddb
 
 COCOAPODS: 1.3.1

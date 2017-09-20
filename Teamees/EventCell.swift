@@ -18,7 +18,7 @@ class EventCell: BaseCell {
             if let thumnailImage = event?.thumbnailImageName {
                 thumbnailImageView.image = UIImage(named: thumnailImage)
                 backgroundImageView.image = UIImage(named: thumnailImage)
-                separatorView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image).flatten()
+                //separatorView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image).flatten()
             }
             
             descriptionLabel.text = event?.description
@@ -28,12 +28,17 @@ class EventCell: BaseCell {
     }
     
     
+    let gradientBackgroundView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         //imageView.image = UIImage(named: "camp")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.alpha = 0
+        imageView.alpha = 0.3
         
         return imageView
     }()
@@ -52,7 +57,7 @@ class EventCell: BaseCell {
         label.text = "Camping in South Carolina"
         label.textColor = .white
         label.textAlignment = .center
-        label.font = label.font.withSize(20)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         return label
     }()
     
@@ -87,13 +92,15 @@ class EventCell: BaseCell {
     
     let separatorView: UIView = {
         let view = UIView()
-        view.alpha = 0.8
+        view.backgroundColor = UIColor.flatBlackColorDark()
+        view.alpha = 0.5
         return view
     }()
     
     override func setUpView() {
         
         addSubview(backgroundImageView)
+        addSubview(gradientBackgroundView)
         addSubview(thumbnailImageView)
         addSubview(separatorView)
         addSubview(titleLabel)
@@ -107,13 +114,19 @@ class EventCell: BaseCell {
         //Contraints for background image
         addContraintsWithFormat(format: "H:|[v0]|", views: backgroundImageView)
         addContraintsWithFormat(format: "V:|[v0]|", views: backgroundImageView)
+        addContraintsWithFormat(format: "H:|[v0]|", views: gradientBackgroundView)
+        addContraintsWithFormat(format: "V:|[v0]|", views: gradientBackgroundView)
+        
+        gradientBackgroundView.backgroundColor = UIColor(gradientStyle: UIGradientStyle.leftToRight, withFrame: self.frame, andColors: [MAIN_BACKGROUND_COLOR, UIColor.clear])
+        
         
         //Contraints for ImageView of Event
         addContraintsWithFormat(format: "H:|-16-[v0(80)]-4-[v1]-16-|", views: thumbnailImageView, titleLabel)
         addContraintsWithFormat(format: "V:|-10-[v0(80)]", views: thumbnailImageView)
         
         //Contraints for Separator Line between cells
-        addContraintsWithFormat(format: "H:|-16-[v0]|", views: separatorView)
+        addContraintsWithFormat(format: "H:[v0]|", views: separatorView)
+        addConstraint(NSLayoutConstraint(item: separatorView, attribute: .left, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 8))
         addContraintsWithFormat(format: "V:[v0(1)]|", views: separatorView)
         
         //Height for Title Label
@@ -153,7 +166,10 @@ class EventCell: BaseCell {
         
         if button.isSelected == true {
             button.isSelected = false
-            button.setImage(toLike, for: .normal)
+            UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+                button.setImage(toLike, for: .normal)
+            }, completion: nil)
+            
             if likes != 0 {
                 event?.likes -= 1
                 likes? -= 1
@@ -162,7 +178,10 @@ class EventCell: BaseCell {
             print("Event Unliked")
         } else {
             button.isSelected = true
-            button.setImage(liked, for: .normal)
+            UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                button.setImage(liked, for: .normal)
+            }, completion: nil)
+            //button.setImage(liked, for: .normal)
             event?.likes += 1
             likes? += 1
             likesLabel.text = "\(likes ?? 0)"

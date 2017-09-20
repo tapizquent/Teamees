@@ -10,12 +10,16 @@ import Firebase
 
 struct FirebaseUserCreator: UserCreator {
     
-    func createUserWithEmailAndPassword(_ email: String, _ password: String) {
+    func createUserWithEmailAndPassword(_ email: String, _ password: String, _ userData: Dictionary<String, Any>) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print("JOSE: There was an error while creating a user with email and password \(error)")
             } else {
                 print("JOSE: User created successfully with email and password")
+                if let user = user {
+                    DataService.ds.createFirebaseUser(uid: user.uid, userData: userData)
+                }
+                
             }
         }
     }

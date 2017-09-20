@@ -7,5 +7,5 @@
 //
 
 protocol UserCreator {
-    func createUserWithEmailAndPassword(_ email: String, _ password: String)
+    func createUserWithEmailAndPassword(_ email: String, _ password: String, _ userData: Dictionary<String, Any>)
 }

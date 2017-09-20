@@ -17,7 +17,7 @@ class EventCell: BaseCell {
             
             if let thumnailImage = event?.thumbnailImageName {
                 thumbnailImageView.image = UIImage(named: thumnailImage)
-                backgroundImageView.image = UIImage(named: thumnailImage)
+                backgroundImageView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image, withAlpha:0.5)
                 //separatorView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image).flatten()
             }
             
@@ -33,14 +33,15 @@ class EventCell: BaseCell {
         return view
     }()
     
-    let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
+    let backgroundImageView: UIView = {
+        let view = UIView()
         //imageView.image = UIImage(named: "camp")
-        imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.alpha = 0.3
+//        imageView.clipsToBounds = true
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.alpha = 0.3
+        view.clipsToBounds = true
         
-        return imageView
+        return view
     }()
     
     let thumbnailImageView: UIImageView = {
@@ -93,7 +94,7 @@ class EventCell: BaseCell {
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.flatBlackColorDark()
-        view.alpha = 0.5
+        view.alpha = 0.8
         return view
     }()
     
@@ -126,7 +127,7 @@ class EventCell: BaseCell {
         
         //Contraints for Separator Line between cells
         addContraintsWithFormat(format: "H:[v0]|", views: separatorView)
-        addConstraint(NSLayoutConstraint(item: separatorView, attribute: .left, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 8))
+        addConstraint(NSLayoutConstraint(item: separatorView, attribute: .left, relatedBy: .equal, toItem: thumbnailImageView, attribute: .left, multiplier: 1, constant: 8))
         addContraintsWithFormat(format: "V:[v0(1)]|", views: separatorView)
         
         //Height for Title Label

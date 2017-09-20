@@ -58,6 +58,12 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
         event3.thumbnailImageName = "soccer"
         event3.likes = 55
         events?.append(event3)
+        let event4 = Event()
+        event4.title = "Different Post in Liked Section"
+        event4.description = "This is where the liked description will be"
+        event4.thumbnailImageName = "red_roses"
+        event4.likes = 33
+        events?.append(event4)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

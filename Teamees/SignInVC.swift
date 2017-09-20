@@ -19,12 +19,17 @@ class SignInVC: UIViewController {
     let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
     
     var active: Bool?
+    let createAccountVC = CreateAccountVC()
     //var mainVC = MainVC()
 
     //var handle: AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //let navBar = UINavigationBar.appearance()
+        self.title = "Sign In"
+//        let title = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+//        title.text = "Sign In"
+        //navigationItem.titleView = title
         userAuthenticator = FirebaseAuthenticator(navigationController!)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -37,6 +42,11 @@ class SignInVC: UIViewController {
         if userStatusChecker?.isUserAuthenticated() == true {
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        
     }
     
     let backgroundImage: UIImageView = {
@@ -126,6 +136,21 @@ class SignInVC: UIViewController {
         return view
     }()
     
+    let createNewAccountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Dont have an account yet?"
+        label.textColor = UIColor.flatWhiteColorDark()
+        return label
+    }()
+    
+    let createNewAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Create new account!", for: .normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 14)
+        button.tintColor = .white
+        return button
+    }()
+    
     @objc func signInButtonPressed(){
         print("SignIn Button pressed")
         if let email = emailTextField.text {
@@ -142,6 +167,7 @@ class SignInVC: UIViewController {
         view.addSubview(formView)
         view.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: formView)
         view.addContraintsWithFormat(format: "V:|[v0]|", views: formView)
+        
 //        view.addConstraint(NSLayoutConstraint(item: formView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
 
         formView.addSubview(logoLabel)
@@ -151,6 +177,7 @@ class SignInVC: UIViewController {
         formView.addSubview(passwordBottomLine)
         formView.addSubview(signInButton)
         formView.addSubview(facebookButton)
+        formView.addSubview(createNewAccountButton)
         
         //Contraints for Email and Password Text Fields
         formView.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: logoLabel)
@@ -158,8 +185,8 @@ class SignInVC: UIViewController {
         formView.addContraintsWithFormat(format: "H:|-16-[v0]-16-|", views: passwordTextField)
         formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: emailBottomLine)
         formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: passwordBottomLine)
-        formView.addContraintsWithFormat(format: "V:|-60-[v0]-60-[v1(50)]-(-4)-[v2(1)]-30-[v3(50)]-(-4)-[v4(1)]-50-[v5(50)]-30-[v6(40)]", views: logoLabel ,emailTextField, emailBottomLine, passwordTextField, passwordBottomLine, signInButton, facebookButton)
-        
+        formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: createNewAccountButton)
+        formView.addContraintsWithFormat(format: "V:|-60-[v0]-60-[v1(50)]-(-4)-[v2(1)]-30-[v3(50)]-(-4)-[v4(1)]-50-[v5(50)]-30-[v6(40)]-60-[v7]", views: logoLabel ,emailTextField, emailBottomLine, passwordTextField, passwordBottomLine, signInButton, facebookButton, createNewAccountButton)
         //Contraints for Sign In Button
         formView.addContraintsWithFormat(format: "H:|-16-[v0]-16-|", views: signInButton)
         formView.addConstraint(NSLayoutConstraint(item: signInButton, attribute: .centerX, relatedBy: .equal, toItem: formView, attribute: .centerX, multiplier: 1, constant: 0))
@@ -169,11 +196,18 @@ class SignInVC: UIViewController {
         
         signInButton.addTarget(self, action: #selector(signInButtonPressed), for: .touchUpInside)
         facebookButton.addTarget(self, action: #selector(facebookButtonPressed), for: .touchUpInside)
+        createNewAccountButton.addTarget(self, action: #selector(createNewAccountButtonPressed), for: .touchUpInside)
         
     }
     
     @objc func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    @objc func createNewAccountButtonPressed(){
+        //Pop tentative, might change it later
+        //navigationController?.popViewController(animated: true)
+        navigationController?.pushViewController(createAccountVC, animated: true)
     }
     
     @objc func facebookButtonPressed(){

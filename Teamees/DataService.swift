@@ -24,4 +24,9 @@ class DataService {
         return _REF_USERS
     }
     
+    func createFirebaseUser(uid: String, userData: Dictionary<String, Any>){
+        REF_USERS.child(uid).updateChildValues(userData)
+        
+    }
+    
 }

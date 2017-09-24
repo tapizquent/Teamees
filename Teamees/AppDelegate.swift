@@ -11,6 +11,7 @@ import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
 import ChameleonFramework
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        IQKeyboardManager.sharedManager().enable = true
         
         return true
     }

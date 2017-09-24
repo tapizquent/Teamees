@@ -64,6 +64,12 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
         event4.thumbnailImageName = "red_roses"
         event4.likes = 33
         events?.append(event4)
+        let event5 = Event()
+        event5.title = "Different Post in Liked Section"
+        event5.description = "This is where the liked description will be"
+        event5.thumbnailImageName = "soccer"
+        event5.likes = 33
+        events?.append(event5)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,7 +87,7 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: frame.width, height: 100)
+        return CGSize(width: frame.width, height: 140)
         
     }
     

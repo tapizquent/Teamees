@@ -15,7 +15,6 @@ import ChameleonFramework
 
 class SignInVC: UIViewController {
     var userAuthenticator: Authenticator?
-    let userCreator: UserCreator? = FirebaseUserCreator()
     let userStatusChecker: UserStatusChecker? = FirebaseStatusChecker()
     
     var active: Bool?

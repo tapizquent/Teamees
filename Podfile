@@ -13,6 +13,7 @@ target 'Teamees' do
   pod 'SwiftKeychainWrapper'
   pod 'FBSDKLoginKit'
   pod 'ChameleonFramework/Swift'
+  pod 'IQKeyboardManagerSwift'
 
 
   target 'TeameesTests' do

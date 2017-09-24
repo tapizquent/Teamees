@@ -38,6 +38,9 @@ class FirebaseAuthenticator: Authenticator {
             } else {
                 print("JOSE: Successfully signed in with token")
                 if let user = user {
+                    let name: String = user.displayName!
+                    let userData = ["name": name]
+                    DataService.ds.createFirebaseUser(uid: user.uid, userData: userData)
                     self.completeSignIn(uid: user.uid)
                 }
             }
@@ -52,6 +55,9 @@ class FirebaseAuthenticator: Authenticator {
             } else {
                 print("JOSE: Successfully signed in with credential")
                 if let user = user {
+                    let name: String = user.displayName!
+                    let userData = ["name": name]
+                    DataService.ds.createFirebaseUser(uid: user.uid, userData: userData)
                     self.completeSignIn(uid: user.uid)
                 }
             }
@@ -65,6 +71,9 @@ class FirebaseAuthenticator: Authenticator {
             } else {
                 print("JOSE: Successfully signed in with email and password")
                 if let user = user {
+                    let name: String = user.displayName!
+                    let userData = ["name": name]
+                    DataService.ds.createFirebaseUser(uid: user.uid, userData: userData)
                     self.completeSignIn(uid: user.uid)
                 }
             }

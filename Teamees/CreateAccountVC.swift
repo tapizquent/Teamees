@@ -9,22 +9,33 @@
 import UIKit
 import ChameleonFramework
 
-class CreateAccountVC: UIViewController {
+class CreateAccountVC: UIViewController, UITextFieldDelegate {
     
     var userCreator: UserCreator?
+    var bottomContraint: NSLayoutConstraint?
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Create Account"
+        label.text = "New Account"
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
         label.textColor = .white
         label.textAlignment = .center
         return label
     }()
     
+    let mainContainer : UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     let formView: UIView = {
         let view = UIView()
         return view
+    }()
+    
+    let scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        return scroll
     }()
     
     let nameTextField: UITextField = {
@@ -42,6 +53,7 @@ class CreateAccountVC: UIViewController {
         textField.textAlignment = .center
         textField.leftView = imageView
         textField.leftViewMode = .always
+        textField.clearsOnBeginEditing = true
         return textField
     }()
     
@@ -60,7 +72,7 @@ class CreateAccountVC: UIViewController {
         textField.textAlignment = .center
         textField.leftView = imageView
         textField.leftViewMode = .always
-        textField.clearsOnInsertion = true
+        textField.clearsOnBeginEditing = true
         return textField
     }()
     
@@ -104,7 +116,7 @@ class CreateAccountVC: UIViewController {
     
     let createAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Create Account", for: .normal)
+        button.setTitle("Join now", for: .normal)
         button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         button.backgroundColor = UIColor(complementaryFlatColorOf: MAIN_BACKGROUND_COLOR)
         button.setTitleColor(ContrastColorOf(backgroundColor: button.backgroundColor!, returnFlat: true), for: .normal)
@@ -159,10 +171,25 @@ class CreateAccountVC: UIViewController {
     func createAcountForm(){
         
         view.backgroundColor = MAIN_BACKGROUND_COLOR
+        view.addSubview(mainContainer)
         view.addSubview(formView)
+        //formView.backgroundColor = .white
+//        view.addContraintsWithFormat(format: "H:|[v0]|", views: mainContainer)
+//        view.addContraintsWithFormat(format: "V:|[v0]", views: mainContainer)
+//
+        
         view.addContraintsWithFormat(format: "H:|-30-[v0]-30-|", views: formView)
         view.addContraintsWithFormat(format: "V:|[v0]|", views: formView)
+//        bottomContraint = NSLayoutConstraint(item: , attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+//        view.addConstraint(bottomContraint!)
+//        mainContainer.addConstraint(NSLayoutConstraint(item: formView, attribute: .centerY, relatedBy: .equal, toItem: mainContainer, attribute: .centerY, multiplier: 1, constant: 0))
         
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAppeared), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+//        view.addContraintsWithFormat(format: "H:|[v0]|", views: scrollView)
+//        view.addContraintsWithFormat(format: "V:|[v0]", views: scrollView)
+//
+//
+//
         //        view.addConstraint(NSLayoutConstraint(item: formView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
         
         formView.addSubview(titleLabel)
@@ -187,7 +214,7 @@ class CreateAccountVC: UIViewController {
         formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: emailBottomLine)
         formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: confirmPasswordBottomLine)
         //formView.addContraintsWithFormat(format: "H:|-8-[v0]-8-|", views: passwordBottomLine)
-        formView.addContraintsWithFormat(format: "V:|-60-[v0]-60-[v1(50)]-(-4)-[v2(1)]-30-[v3(50)]-(-4)-[v4(1)]-30-[v5(50)]-(-4)-[v6(1)]-30-[v7(50)]-(-4)-[v8(1)]-50-[v9(50)]", views: titleLabel, nameTextField, titleBottomLine, emailTextField, emailBottomLine, passwordTextField, passwordBottomLine, confirmPasswordTextField, confirmPasswordBottomLine, createAccountButton)
+        formView.addContraintsWithFormat(format: "V:|-60-[v0]-50-[v1(50)]-(-4)-[v2(1)]-30-[v3(50)]-(-4)-[v4(1)]-30-[v5(50)]-(-4)-[v6(1)]-30-[v7(50)]-(-4)-[v8(1)]-80-[v9(50)]", views: titleLabel, nameTextField, titleBottomLine, emailTextField, emailBottomLine, passwordTextField, passwordBottomLine, confirmPasswordTextField, confirmPasswordBottomLine, createAccountButton)
         //Contraints for Sign In Button
         formView.addContraintsWithFormat(format: "H:|-16-[v0]-16-|", views: createAccountButton)
         formView.addConstraint(NSLayoutConstraint(item: createAccountButton, attribute: .centerX, relatedBy: .equal, toItem: formView, attribute: .centerX, multiplier: 1, constant: 0))
@@ -203,12 +230,13 @@ class CreateAccountVC: UIViewController {
                     if let password = passwordTextField.text, !password.isEmpty {
                         if let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty {
                             if confirmPassword == password {
-                                //                            self.userCreator = FirebaseUserCreator()
-                                //                            let userData = ["name": name]
-                                //                            userCreator?.createUserWithEmailAndPassword(email, password, userData)
+                                self.userCreator = FirebaseUserCreator(navigationController: navigationController!)
+                                let userData = ["name": name]
+                                userCreator?.createUserWithEmailAndPassword(email, password, userData)
                                 print("JOSE: User with name: \(name) created successfully")
                             } else {
-                                print("Password do not match")
+                                confirmPasswordTextField.text = ""
+                                placeholderErrorChange(confirmPasswordTextField, "Passwords do not match")
                             }
                         } else {
                             placeholderErrorChange(confirmPasswordTextField, "Please confirm password")
@@ -237,6 +265,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @objc func dismissKeyboard(){
+        bottomContraint?.constant = 0
         view.endEditing(true)
     }
     

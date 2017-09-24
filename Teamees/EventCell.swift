@@ -17,7 +17,7 @@ class EventCell: BaseCell {
             
             if let thumnailImage = event?.thumbnailImageName {
                 thumbnailImageView.image = UIImage(named: thumnailImage)
-                backgroundImageView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image, withAlpha:0.5)
+                backgroundImageView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image, withAlpha:0.8)
                 //separatorView.backgroundColor = UIColor(averageColorFrom: thumbnailImageView.image).flatten()
             }
             
@@ -30,6 +30,7 @@ class EventCell: BaseCell {
     
     let gradientBackgroundView: UIView = {
         let view = UIView()
+        view.clipsToBounds = true
         return view
     }()
     
@@ -74,7 +75,7 @@ class EventCell: BaseCell {
         return label
     }()
     
-    let likeButtonImage: UIButton = {
+    let likeButton: UIButton = {
         let lb = UIButton()
         let toLike = UIImage(named: "like_icon")
         lb.setImage(toLike?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -93,9 +94,28 @@ class EventCell: BaseCell {
     
     let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.flatBlackColorDark()
-        view.alpha = 0.8
+        view.backgroundColor = UIColor.flatWhiteColorDark()
+        view.alpha = 0.1
         return view
+    }()
+    
+    let functionsView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let functionSeparatorView: UIView = {
+        let view = UIView()
+        view.alpha = 0.1
+        return view
+    }()
+    
+    let bookmarkButton: UIButton = {
+        let button = UIButton()
+        let toBookmark = UIImage(named: "bookmark_outline")
+        button.setImage(toBookmark?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        return button
     }()
     
     override func setUpView() {
@@ -103,13 +123,16 @@ class EventCell: BaseCell {
         addSubview(backgroundImageView)
         addSubview(gradientBackgroundView)
         addSubview(thumbnailImageView)
-        addSubview(separatorView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
-        addSubview(likeButtonImage)
-        addSubview(likesLabel)
+        addSubview(functionsView)
         
-        likeButtonImage.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        functionsView.addSubview(likeButton)
+        functionsView.addSubview(bookmarkButton)
+        functionsView.addSubview(functionSeparatorView)
+        functionsView.addSubview(separatorView)
+        
+        likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         
         
         //Contraints for background image
@@ -121,14 +144,14 @@ class EventCell: BaseCell {
         gradientBackgroundView.backgroundColor = UIColor(gradientStyle: UIGradientStyle.leftToRight, withFrame: self.frame, andColors: [MAIN_BACKGROUND_COLOR, UIColor.clear])
         
         
+        addContraintsWithFormat(format: "H:|[v0]|", views: functionsView)
+        addContraintsWithFormat(format: "V:[v0(40)]|", views: functionsView)
         //Contraints for ImageView of Event
         addContraintsWithFormat(format: "H:|-16-[v0(80)]-4-[v1]-16-|", views: thumbnailImageView, titleLabel)
         addContraintsWithFormat(format: "V:|-10-[v0(80)]", views: thumbnailImageView)
         
         //Contraints for Separator Line between cells
-        addContraintsWithFormat(format: "H:[v0]|", views: separatorView)
-        addConstraint(NSLayoutConstraint(item: separatorView, attribute: .left, relatedBy: .equal, toItem: thumbnailImageView, attribute: .left, multiplier: 1, constant: 8))
-        addContraintsWithFormat(format: "V:[v0(1)]|", views: separatorView)
+       
         
         //Height for Title Label
         addContraintsWithFormat(format: "V:|-10-[v0(25)]", views: titleLabel)
@@ -138,23 +161,18 @@ class EventCell: BaseCell {
         
         addConstraint(NSLayoutConstraint(item: descriptionLabel, attribute: .left, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 10))
         
-        addConstraint(NSLayoutConstraint(item: descriptionLabel, attribute: .right, relatedBy: .equal, toItem: likeButtonImage, attribute: .left, multiplier: 1, constant: 0))
-        
         
         addContraintsWithFormat(format: "V:[v0(45)]", views: descriptionLabel)
         
-        //Like button constraints
-        addConstraint(NSLayoutConstraint(item: likeButtonImage, attribute: .right, relatedBy: .equal, toItem: titleLabel, attribute: .right, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: likeButtonImage, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1, constant: 8))
+        functionsView.addContraintsWithFormat(format: "V:|[v0]|", views: likeButton)
+        functionsView.addConstraint(NSLayoutConstraint(item: likeButton, attribute: .right, relatedBy: .equal, toItem: bookmarkButton, attribute: .left, multiplier: 1, constant: 0))
+        functionsView.addContraintsWithFormat(format: "H:[v0(40)]|", views: bookmarkButton)
+        functionsView.addContraintsWithFormat(format: "V:|[v0]|", views: bookmarkButton)
         
-        addContraintsWithFormat(format: "V:[v0(30)]", views: likeButtonImage)
-        addContraintsWithFormat(format: "H:[v0(30)]", views: likeButtonImage)
-        
-        addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .top, relatedBy: .equal, toItem: likeButtonImage, attribute: .bottom, multiplier: 1, constant: 0))
-        
-        addContraintsWithFormat(format: "V:[v0(15)]", views: likesLabel)
-        addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .left, relatedBy: .equal, toItem: likeButtonImage, attribute: .left, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: likesLabel, attribute: .right, relatedBy: .equal, toItem: likeButtonImage, attribute: .right, multiplier: 1, constant: 0))
+        functionsView.addContraintsWithFormat(format: "H:|[v0]|", views: functionSeparatorView)
+        functionsView.addContraintsWithFormat(format: "V:|[v0(1)]", views: functionSeparatorView)
+        functionSeparatorView.backgroundColor = UIColor(gradientStyle: UIGradientStyle.leftToRight, withFrame: self.frame, andColors: [UIColor.clear, FlatWhiteDark()])
+        functionsView.addContraintsWithFormat(format: "H:|[v0]|", views: separatorView)
         
     }
     
@@ -163,7 +181,6 @@ class EventCell: BaseCell {
         
         let toLike = UIImage(named: "like_icon")
         let liked = UIImage(named: "liked_icon")
-        var likes = Int(likesLabel.text!)
         
         if button.isSelected == true {
             button.isSelected = false
@@ -171,10 +188,8 @@ class EventCell: BaseCell {
                 button.setImage(toLike, for: .normal)
             }, completion: nil)
             
-            if likes != 0 {
+            if event?.likes != 0 {
                 event?.likes -= 1
-                likes? -= 1
-                likesLabel.text = "\(likes ?? 0)"
             }
             print("Event Unliked")
         } else {
@@ -184,10 +199,19 @@ class EventCell: BaseCell {
             }, completion: nil)
             //button.setImage(liked, for: .normal)
             event?.likes += 1
-            likes? += 1
-            likesLabel.text = "\(likes ?? 0)"
-            
             print("Event liked")
+            
+        }
+        
+    }
+    
+    @objc func bookmarkButtonTapped(_ button: UIButton){
+        let toBookmark = UIImage(named: "bookmark_outline")
+        let bookmarked = UIImage(named: "bookmark_filled")
+        
+        if button.isSelected == true {
+            
+        } else {
             
         }
         

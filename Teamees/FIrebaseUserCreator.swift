@@ -7,8 +7,14 @@
 //
 
 import Firebase
+import  SwiftKeychainWrapper
 
 struct FirebaseUserCreator: UserCreator {
+    var navigationController: UINavigationController?
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
     
     func createUserWithEmailAndPassword(_ email: String, _ password: String, _ userData: Dictionary<String, Any>) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
@@ -18,11 +24,16 @@ struct FirebaseUserCreator: UserCreator {
                 print("JOSE: User created successfully with email and password")
                 if let user = user {
                     DataService.ds.createFirebaseUser(uid: user.uid, userData: userData)
+                    self.storeUidInKeychain(uid: user.uid)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
                 
             }
         }
     }
     
-    
+    func storeUidInKeychain(uid: String){
+        let saveSuccessful: Bool = KeychainWrapper.standard.set(uid, forKey: KEY_UID)
+        print("JOSE: Saved key to KeychainWrapper: \(saveSuccessful)")
+    }
 }

@@ -23,9 +23,13 @@
 		D082F00A1F6FA71200B699FC /* UserCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F0091F6FA71200B699FC /* UserCreator.swift */; };
 		D082F00C1F6FAA2A00B699FC /* UserStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */; };
 		D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */; };
+		D0B0408A1F778B1C002EBA62 /* EventLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B040891F778B1C002EBA62 /* EventLauncher.swift */; };
+		D0B041621F797B52002EBA62 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B041611F797B52002EBA62 /* Profile.swift */; };
+		D0B041641F797BF1002EBA62 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B041631F797BF1002EBA62 /* Attribute.swift */; };
+		D0B041681F797E7D002EBA62 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B041671F797E7D002EBA62 /* DataService.swift */; };
 		D0DA55A01F7061B1000208EB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA559F1F7061B1000208EB /* Constants.swift */; };
 		D0DA55A21F70A36F000208EB /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A11F70A36F000208EB /* EmptyCell.swift */; };
-		D0DA55A51F70AD57000208EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A41F70AD57000208EB /* DataService.swift */; };
+		D0DA55A51F70AD57000208EB /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55A41F70AD57000208EB /* FirebaseDataService.swift */; };
 		D0DA55AB1F71CC11000208EB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DA55AA1F71CC11000208EB /* UIImageExtension.swift */; };
 		D0DD23921F65A96300B944B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23911F65A96300B944B4 /* AppDelegate.swift */; };
 		D0DD23941F65A96300B944B4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD23931F65A96300B944B4 /* MainVC.swift */; };
@@ -75,9 +79,13 @@
 		D082F0091F6FA71200B699FC /* UserCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreator.swift; sourceTree = "<group>"; };
 		D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusChecker.swift; sourceTree = "<group>"; };
 		D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStatusChecker.swift; sourceTree = "<group>"; };
+		D0B040891F778B1C002EBA62 /* EventLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLauncher.swift; sourceTree = "<group>"; };
+		D0B041611F797B52002EBA62 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D0B041631F797BF1002EBA62 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		D0B041671F797E7D002EBA62 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		D0DA559F1F7061B1000208EB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0DA55A11F70A36F000208EB /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
-		D0DA55A41F70AD57000208EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		D0DA55A41F70AD57000208EB /* FirebaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
 		D0DA55A81F70BCD7000208EB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D0DA55A91F70BCD7000208EB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D0DA55AA1F71CC11000208EB /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -147,7 +155,8 @@
 		D0DA55A31F70AD42000208EB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D0DA55A41F70AD57000208EB /* DataService.swift */,
+				D0DA55A41F70AD57000208EB /* FirebaseDataService.swift */,
+				D0B041671F797E7D002EBA62 /* DataService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -240,6 +249,9 @@
 				D082F0091F6FA71200B699FC /* UserCreator.swift */,
 				D082F00B1F6FAA2A00B699FC /* UserStatusChecker.swift */,
 				D082F00D1F6FABFC00B699FC /* FirebaseStatusChecker.swift */,
+				D0B040891F778B1C002EBA62 /* EventLauncher.swift */,
+				D0B041611F797B52002EBA62 /* Profile.swift */,
+				D0B041631F797BF1002EBA62 /* Attribute.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -447,6 +459,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -460,6 +473,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -493,11 +507,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B041641F797BF1002EBA62 /* Attribute.swift in Sources */,
 				D082F0081F6FA6F700B699FC /* FIrebaseUserCreator.swift in Sources */,
-				D0DA55A51F70AD57000208EB /* DataService.swift in Sources */,
+				D0DA55A51F70AD57000208EB /* FirebaseDataService.swift in Sources */,
+				D0B041621F797B52002EBA62 /* Profile.swift in Sources */,
 				D0DD23C01F6752B900B944B4 /* Event.swift in Sources */,
 				D0DD23BE1F671BBD00B944B4 /* MenuCell.swift in Sources */,
 				D082F00E1F6FABFC00B699FC /* FirebaseStatusChecker.swift in Sources */,
+				D0B041681F797E7D002EBA62 /* DataService.swift in Sources */,
 				D0DA55AB1F71CC11000208EB /* UIImageExtension.swift in Sources */,
 				D082F0021F6B768F00B699FC /* SlideAnimator.swift in Sources */,
 				D082F0041F6C655F00B699FC /* ProfileVC.swift in Sources */,
@@ -511,6 +528,7 @@
 				D0DD23BC1F671B5E00B944B4 /* BaseCell.swift in Sources */,
 				D0DA55A21F70A36F000208EB /* EmptyCell.swift in Sources */,
 				D082EFFE1F6B62B800B699FC /* SignInVC.swift in Sources */,
+				D0B0408A1F778B1C002EBA62 /* EventLauncher.swift in Sources */,
 				D082F00C1F6FAA2A00B699FC /* UserStatusChecker.swift in Sources */,
 				D0DD23BA1F67100E00B944B4 /* MenuBar.swift in Sources */,
 				D0DD23C61F6839CF00B944B4 /* TopCell.swift in Sources */,

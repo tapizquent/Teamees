@@ -118,6 +118,14 @@ class EventCell: BaseCell {
         return button
     }()
     
+    let infoButton: UIButton = {
+        let button = UIButton()
+        let infoImage = UIImage(named: "info")
+        button.setImage(infoImage?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .white
+        return button
+    }()
+    
     override func setUpView() {
         
         addSubview(backgroundImageView)
@@ -129,10 +137,13 @@ class EventCell: BaseCell {
         
         functionsView.addSubview(likeButton)
         functionsView.addSubview(bookmarkButton)
+        functionsView.addSubview(infoButton)
         functionsView.addSubview(functionSeparatorView)
         functionsView.addSubview(separatorView)
         
+        
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        bookmarkButton.addTarget(self, action: #selector(bookmarkButtonTapped), for: .touchUpInside)
         
         
         //Contraints for background image
@@ -168,6 +179,8 @@ class EventCell: BaseCell {
         functionsView.addConstraint(NSLayoutConstraint(item: likeButton, attribute: .right, relatedBy: .equal, toItem: bookmarkButton, attribute: .left, multiplier: 1, constant: 0))
         functionsView.addContraintsWithFormat(format: "H:[v0(40)]|", views: bookmarkButton)
         functionsView.addContraintsWithFormat(format: "V:|[v0]|", views: bookmarkButton)
+        functionsView.addContraintsWithFormat(format: "V:|[v0]|", views: infoButton)
+        functionsView.addContraintsWithFormat(format: "H:|[v0(40)]", views: infoButton)
         
         functionsView.addContraintsWithFormat(format: "H:|[v0]|", views: functionSeparatorView)
         functionsView.addContraintsWithFormat(format: "V:|[v0(1)]", views: functionSeparatorView)
@@ -210,9 +223,15 @@ class EventCell: BaseCell {
         let bookmarked = UIImage(named: "bookmark_filled")
         
         if button.isSelected == true {
-            
+            button.isSelected = false
+            UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+                button.setImage(toBookmark, for: .normal)
+            }, completion: nil)
         } else {
-            
+            button.isSelected = true
+            UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: {
+                button.setImage(bookmarked, for: .normal)
+            }, completion: nil)
         }
         
     }

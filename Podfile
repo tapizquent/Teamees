@@ -14,6 +14,7 @@ target 'Teamees' do
   pod 'FBSDKLoginKit'
   pod 'ChameleonFramework/Swift'
   pod 'IQKeyboardManagerSwift'
+  pod 'SwiftyJSON'
 
 
   target 'TeameesTests' do

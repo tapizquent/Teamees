@@ -79,7 +79,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     func setUpNavigationBar(){
         navigationController?.navigationBar.isTranslucent = false
         // Sets Bar's Shadow Image (Color) //
-        navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: .clear), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(color: UIColor.flatBlackColorDark()), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage.imageWithColor(color: UIColor.flatBlackColorDark())
         //navigationController?.hidesNavigationBarHairline = true
         
@@ -112,12 +112,10 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         collectionView?.register(RecommendedCell.self, forCellWithReuseIdentifier: recommendedCellId)
         collectionView?.register(EmptyCell.self, forCellWithReuseIdentifier: emptyCellId)
         
-        
+        //let navigationBarHeight = ((navigationController?.navigationBar.frame.height)! + 20)
         collectionView?.contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 60, 0)
-        
         collectionView?.isPagingEnabled = true
-        
     }
     
     

@@ -12,6 +12,7 @@ import ChameleonFramework
 class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var events: [Event]?
+    let mainVC = MainVC()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,7 +36,6 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
         collectionView.register(EventCell.self, forCellWithReuseIdentifier: cellId)
         //backgroundColor = .brown
         fetchEvents()
-        
     }
     
     func fetchEvents(){
@@ -93,6 +93,10 @@ class TopCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("JOSE: Event liked at indexPath \(indexPath)")
     }
 
 
